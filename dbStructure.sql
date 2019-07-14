@@ -142,6 +142,17 @@ CREATE TABLE TeachingAssistant (
 )  ENGINE=INNODB; 
 
 
+DROP TABLE IF EXISTS TeachingAssistantRoles;
+CREATE TABLE TeachingAssistantRoles (
+    sectionID VARCHAR(4),
+    teachingAssistantID INT NOT NULL,
+	room INT NOT NULL,
+	typeofrole ENUM ('tutorial','lab','marker'),
+    hours TIME NOT NULL,
+	FOREIGN KEY (sectionID) REFERENCES Section (sectionID)
+    -- add hours contraints 
+)  ENGINE=INNODB; 
+
 DROP TABLE IF EXISTS ResearchFunding;
 CREATE TABLE ResearchFunding (
     researchFundingID INT AUTO_INCREMENT NOT NULL,
