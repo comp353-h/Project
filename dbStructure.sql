@@ -5,13 +5,18 @@ CREATE TABLE Department (
     PRIMARY KEY (departmentID)
 )  ENGINE=INNODB;
 
+
 DROP TABLE IF EXISTS Program;
 CREATE TABLE Program (
     programID INT AUTO_INCREMENT NOT NULL,
+	departmentID INT NOT NULL,
     name CHAR(60) NOT NULL,
-    Credits DECIMAL(2 , 1 ),
-    PRIMARY KEY (programID)
+    typeofprogram ENUM('Undergraduate', 'Graduate') NOT NULL,
+    credits DECIMAL(3 , 0 ),
+    PRIMARY KEY (programID),
+    FOREIGN KEY(departmentID) REFERENCES Department(departmentID)
 )  ENGINE=INNODB;
+
 
 DROP TABLE IF EXISTS Course;
 CREATE TABLE Course (
@@ -19,7 +24,9 @@ CREATE TABLE Course (
     courseName VARCHAR(25) NOT NULL,
     programID INT NOT NULL,
     credits DECIMAL(4 , 2 ),
-    PRIMARY KEY (courseID)
+    prerequisite VARCHAR(8),
+    PRIMARY KEY (courseID),
+	FOREIGN KEY(programID) REFERENCES Program(programID)
 )  ENGINE=INNODB;
 
 DROP TABLE IF EXISTS Instructor;
@@ -55,23 +62,45 @@ CREATE TABLE Student (
     PRIMARY KEY (studentID)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS TeachingAssistant;
-CREATE TABLE TeachingAssistant (
-    teachingAssistantID INT AUTO_INCREMENT NOT NULL,
-    PRIMARY KEY (teachingAssistantID),
-    firstName VARCHAR(50) NOT NULL,
-    lastName VARCHAR(50) NOT NULL,
-    dateOfBirth DATE,
-    gpa DECIMAL(3 , 2 )
-)  ENGINE=INNODB; 
+
+DROP TABLE IF EXISTS StudentProgram;
+CREATE TABLE StudentProgram (
+    studentID INT NOT NULL,
+	programID INT NOT NULL,
+	FOREIGN KEY(studentID) REFERENCES Student(studentID),
+	FOREIGN KEY(programID) REFERENCES Program(programID),
+    UNIQUE KEY (studentID , programID)  
+)  ENGINE=INNODB;
 
 DROP TABLE IF EXISTS Advisor;
 CREATE TABLE Advisor (
-    employeeID INT AUTO_INCREMENT NOT NULL,
+    advisorID INT AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(50) NOT NULL,
     lastName VARCHAR(50) NOT NULL,
-    PRIMARY KEY (employeeID)
+    PRIMARY KEY (advisorID)
 )  ENGINE=INNODB;
+
+DROP TABLE IF EXISTS StudentAdvisor;
+CREATE TABLE StudentAdvisor (
+    studentID INT NOT NULL,
+	advisorID INT NOT NULL,
+	programID INT NOT NULL,
+	FOREIGN KEY(studentID) REFERENCES Student(studentID),
+	FOREIGN KEY(advisorID) REFERENCES Advisor(advisorID),
+	FOREIGN KEY(programID) REFERENCES Program(programID),
+    UNIQUE KEY (studentID , programID)  
+)  ENGINE=INNODB;
+
+DROP TABLE IF EXISTS TeachingAssistant;
+CREATE TABLE TeachingAssistant (
+    teachingAssistantID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    dateOfBirth DATE,
+    gpa DECIMAL(3 , 2 ),
+	PRIMARY KEY (teachingAssistantID)
+)  ENGINE=INNODB; 
+
 
 DROP TABLE IF EXISTS ResearchFunding;
 CREATE TABLE ResearchFunding (
