@@ -55,6 +55,16 @@ CREATE TABLE Student (
     PRIMARY KEY (studentID)
 )  ENGINE=INNODB;
 
+DROP TABLE IF EXISTS TeachingAssistant;
+CREATE TABLE TeachingAssistant (
+    teachingAssistantID INT AUTO_INCREMENT NOT NULL,
+    PRIMARY KEY (teachingAssistantID),
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    dateOfBirth DATE,
+    gpa DECIMAL(3 , 2 )
+)  ENGINE=INNODB; 
+
 DROP TABLE IF EXISTS Advisor;
 CREATE TABLE Advisor (
     employeeID INT AUTO_INCREMENT NOT NULL,
