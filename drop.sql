@@ -5,6 +5,7 @@
 
 
 -- adjusted order of dropping for foreign key constraints
+DROP TABLE IF EXISTS `StudentEnrolledCourses`;
 DROP TABLE IF EXISTS `InstructorSection`;
 DROP TABLE IF EXISTS `StudentAdvisor`;
 DROP TABLE IF EXISTS `Advisor`;
@@ -19,4 +20,3 @@ DROP TABLE IF EXISTS `ResearchFunding`;
 DROP TABLE IF EXISTS `Student`;
 DROP TABLE IF EXISTS `Supervisor`;
 DROP TABLE IF EXISTS `TeachingAssistant`;
-
