@@ -9,12 +9,12 @@ CREATE TABLE Department (
 DROP TABLE IF EXISTS Program;
 CREATE TABLE Program (
     programID INT AUTO_INCREMENT NOT NULL,
-	departmentID INT NOT NULL,
+    departmentID INT NOT NULL,
     name CHAR(60) NOT NULL,
     typeofprogram ENUM('Undergraduate', 'Graduate') NOT NULL,
     credits DECIMAL(3 , 0 ),
     PRIMARY KEY (programID),
-    FOREIGN KEY(departmentID) REFERENCES Department(departmentID)
+    FOREIGN KEY (departmentID) REFERENCES Department (departmentID)
 )  ENGINE=INNODB;
 
 
@@ -26,7 +26,8 @@ CREATE TABLE Course (
     credits DECIMAL(4 , 2 ),
     prerequisite VARCHAR(8),
     PRIMARY KEY (courseID),
-	FOREIGN KEY(programID) REFERENCES Program(programID)
+    FOREIGN KEY (programID)
+        REFERENCES Program (programID)
 )  ENGINE=INNODB;
 
 DROP TABLE IF EXISTS Instructor;
@@ -48,14 +49,41 @@ DROP TABLE IF EXISTS Section;
 CREATE TABLE Section (
     sectionID VARCHAR(4),
     courseID VARCHAR(8) NOT NULL,
-    room INT NOT NULL
+    room INT NOT NULL,
+    startat TIME NOT NULL ,
+    endat TIME NOT NULL,
+	PRIMARY  KEY (sectionID),
+    FOREIGN KEY (room) REFERENCES Class (room),
+    UNIQUE KEY (sectionID , courseID , startat , endat)
 )  ENGINE=INNODB;
+
+
+
+DROP TABLE IF EXISTS InstructorSection;
+CREATE TABLE InstructorSection (
+    instructorID INT NOT NULL,
+    sectionID VARCHAR(4) NOT NULL,
+    courseID VARCHAR(8) NOT NULL,
+    departmentID INT NOT NULL,
+	startat TIME NOT NULL ,
+    endat TIME NOT NULL,
+    FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
+    FOREIGN KEY (sectionID) REFERENCES Section (sectionID),
+    FOREIGN KEY (departmentID) REFERENCES Department (departmentID)
+--  UNIQUE KEY (instructorID , sectionID , departmentID),
+-- 	UNIQUE KEY (instructorID , startat , endat)
+-- 	CONSTRAINT CHK_EndTime_After_StartTime CHECK (endat > startat)
+)  ENGINE=INNODB;
+
+
 
 DROP TABLE IF EXISTS Student;
 CREATE TABLE Student (
     studentID INT AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(50) NOT NULL,
     lastName VARCHAR(50) NOT NULL,
+    phone INT,
+    email VARCHAR(40),
     dateOfBirth DATE NOT NULL,
     studentType ENUM('Undergraduate', 'Graduate') NOT NULL,
     gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
@@ -66,11 +94,23 @@ CREATE TABLE Student (
 DROP TABLE IF EXISTS StudentProgram;
 CREATE TABLE StudentProgram (
     studentID INT NOT NULL,
-	programID INT NOT NULL,
-	FOREIGN KEY(studentID) REFERENCES Student(studentID),
-	FOREIGN KEY(programID) REFERENCES Program(programID),
-    UNIQUE KEY (studentID , programID)  
+    programID INT NOT NULL,
+    FOREIGN KEY (studentID) REFERENCES Student (studentID),
+    FOREIGN KEY (programID) REFERENCES Program (programID),
+    UNIQUE KEY (studentID , programID)
 )  ENGINE=INNODB;
+
+
+DROP TABLE IF EXISTS StudentEnrolledCourses;
+CREATE TABLE StudentEnrolledCourses (
+    studentID INT NOT NULL,
+    courseID VARCHAR(8) NOT NULL,
+	sectionID VARCHAR(4),
+    FOREIGN KEY (studentID) REFERENCES Student (studentID),
+    FOREIGN KEY (courseID) REFERENCES Course (courseID)
+)  ENGINE=INNODB;
+
+
 
 DROP TABLE IF EXISTS Advisor;
 CREATE TABLE Advisor (
@@ -83,12 +123,12 @@ CREATE TABLE Advisor (
 DROP TABLE IF EXISTS StudentAdvisor;
 CREATE TABLE StudentAdvisor (
     studentID INT NOT NULL,
-	advisorID INT NOT NULL,
-	programID INT NOT NULL,
-	FOREIGN KEY(studentID) REFERENCES Student(studentID),
-	FOREIGN KEY(advisorID) REFERENCES Advisor(advisorID),
-	FOREIGN KEY(programID) REFERENCES Program(programID),
-    UNIQUE KEY (studentID , programID)  
+    advisorID INT NOT NULL,
+    programID INT NOT NULL,
+    FOREIGN KEY (studentID) REFERENCES Student (studentID),
+    FOREIGN KEY (advisorID) REFERENCES Advisor (advisorID),
+    FOREIGN KEY (programID) REFERENCES Program (programID),
+    UNIQUE KEY (studentID , programID)
 )  ENGINE=INNODB;
 
 DROP TABLE IF EXISTS TeachingAssistant;
@@ -98,7 +138,7 @@ CREATE TABLE TeachingAssistant (
     lastName VARCHAR(50) NOT NULL,
     dateOfBirth DATE,
     gpa DECIMAL(3 , 2 ),
-	PRIMARY KEY (teachingAssistantID)
+    PRIMARY KEY (teachingAssistantID)
 )  ENGINE=INNODB; 
 
 
