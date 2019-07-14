@@ -2,10 +2,9 @@
 -- FROM information_schema.tables
 -- WHERE table_schema = hrc353_1;
 
-
-
--- adjusted order of dropping for foreign key constraints
-DROP TABLE IF EXISTS `StudentEnrolledCourses`;
+-- Order of deletion depends
+DROP TABLE IF EXISTS `TeachingAssistantRoles`;
+DROP TABLE IF EXISTS `StudentEnrolledCourses`; 
 DROP TABLE IF EXISTS `InstructorSection`;
 DROP TABLE IF EXISTS `StudentAdvisor`;
 DROP TABLE IF EXISTS `Advisor`;
