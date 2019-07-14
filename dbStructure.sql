@@ -149,6 +149,7 @@ CREATE TABLE TeachingAssistantRoles (
 	room INT NOT NULL,
 	typeofrole ENUM ('tutorial','lab','marker'),
     hours TIME NOT NULL,
+	FOREIGN KEY (teachingAssistantID) REFERENCES TeachingAssistant (teachingAssistantID),
 	FOREIGN KEY (sectionID) REFERENCES Section (sectionID)
     -- add hours contraints 
 )  ENGINE=INNODB; 
