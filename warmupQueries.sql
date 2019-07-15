@@ -85,3 +85,18 @@ WHERE
     c.courseID = 'COMP353' AND t.termName = 'SUMMER' AND t.termYear = 2019
 ;
 			     
+-- Q7			     
+-- Find the name of all the supervisors in the Computer Science department
+-- who have supervised at least 20 students.
+
+SELECT 
+    *
+FROM
+    StudentSupervisor ss
+        JOIN
+    Supervisor s ON (s.supervisorID = ss.supervisorID)
+        JOIN
+    Program p ON (p.programID = ss.programID)
+    group by s.supervisorID
+    HAVING COUNT(s.supervisorID > 19)
+;
