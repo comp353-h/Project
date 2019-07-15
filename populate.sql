@@ -29,22 +29,22 @@ INSERT INTO Program VALUES
 
 INSERT INTO Course VALUES
 -- courseID, courseName, programID, departmentID, credits, prerequisite.
-( "MATH201", "ELementary Functions", 6, 5,	3.00, NULL ),
-( "MATH202", "College Algebra", 6, 5, 3.00, "MATH201" ),
-( "MATH203", "Differential & Integral Calculus I", 6, 5, 3.00, NULL ),
-( "MATH204", "Vectors and Matrices", 6, 5, 3.00, NULL ),
-( "MATH205", "Differential & Integral Calculus II", 6, 5, 3.00, "MATH203" ),
-( "BCEE231", "Structured Programming and Applications for Building and Civil Engineers", 9, 3, 3.00, "MATH204" ),
-( "BLDG212", "Building Engineering Drawing and Introduction to Design", 9, 3, 3.00, NULL ),
-( "BCEE371", "Surveying", 9, 3, 3.00, "BCEE231" ),
-( "CIVI212", "Civil Engineering Drawing and Introduction to Design", 10, 4, 3.00, NULL ),
-( "CIVI231", "Geology for Civil Engineers", 10, 4, 3.00, NULL ),
-( "COMP232", "Mathematics for Computer", 7, 1, 3.00, "MATH204" ),
-( "COMP233", "Probability and Statistics for Computer Science", 7, 1, 3.00, "MATH205" ),
-( "COMP248", "Object-Oriented Programming", 7, 1, 3.50, "MATH204" ),
-( "COMP249", "Object-Oriented Programming", 7, 1, 3.50, "MATH205" ),
-( "COMP353", "Databases", 7, 1, 4.00, "COMP232" ),
-( "SOEN228", "System Hardware", 7, 1, 3.00, "MATH204" );
+( "MATH201", "ELementary Functions", 5, 6,	3.00, NULL ),
+( "MATH202", "College Algebra", 5, 6, 3.00, "MATH201" ),
+( "MATH203", "Differential & Integral Calculus I", 5, 6, 3.00, NULL ),
+( "MATH204", "Vectors and Matrices", 5, 6, 3.00, NULL ),
+( "MATH205", "Differential & Integral Calculus II", 5, 6, 3.00, "MATH203" ),
+( "BCEE231", "Structured Programming and Applications for Building and Civil Engineers", 3, 9, 3.00, "MATH204" ),
+( "BLDG212", "Building Engineering Drawing and Introduction to Design", 3, 9, 3.00, NULL ),
+( "BCEE371", "Surveying", 3, 9, 3.00, "BCEE231" ),
+( "CIVI212", "Civil Engineering Drawing and Introduction to Design", 4, 10, 3.00, NULL ),
+( "CIVI231", "Geology for Civil Engineers", 4, 10, 3.00, NULL ),
+( "COMP232", "Mathematics for Computer", 1, 7, 3.00, "MATH204" ),
+( "COMP233", "Probability and Statistics for Computer Science", 1, 7, 3.00, "MATH205" ),
+( "COMP248", "Object-Oriented Programming", 1, 7, 3.50, "MATH204" ),
+( "COMP249", "Object-Oriented Programming", 1, 7, 3.50, "MATH205" ),
+( "COMP353", "Databases", 1, 7, 4.00, "COMP232" ),
+( "SOEN228", "System Hardware", 1, 7, 3.00, "MATH204" );
 
 INSERT INTO Instructor VALUES
 -- instructorID, firstName, lastName3
@@ -66,8 +66,8 @@ INSERT INTO Section VALUES
 ( "CC", "COMP353", 2, 535, "14:45:00", "17:30:00" );
 
 INSERT INTO InstructorHistory VALUES
--- instructorID, termID, sectionID.
-( 1, 1, "AA" ); 
+-- instructorID, termID, courseID, sectionID.
+( 1, 1, "COMP248", "AA" ); 
 
 INSERT INTO Student VALUES
 -- studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa.
@@ -83,7 +83,7 @@ INSERT INTO StudentProgram VALUES
 
 INSERT INTO StudentCourses VALUES
 -- studentID, courseID,	grade, termID, sectionID.
-( 1, "COMP353", "A+", 2, "CC" ),
-( 1, "COMP248", "A", 1, "AA"),
-( 2, "COMP353", "B", 2, "CC" ),
-( 3, "COMP353", "C+", 2, "CC" );
+( 1, "COMP353", "CC", 2, "A+" ),
+( 1, "COMP248", "AA", 1, "A" ),
+( 2, "COMP353", "CC", 2, "B" ),
+( 3, "COMP353", "CC", 2, "C+" );
