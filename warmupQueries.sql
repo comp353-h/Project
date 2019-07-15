@@ -64,3 +64,24 @@ WHERE
             studentID
         FROM
             StudentAdvisor);
+			     
+			     
+-- Q6 			     
+-- Find the ID, name and assignment mandate of all the graduate students
+-- who are assigned as teaching assistants to Comp 353 for the summer term
+-- of 2019
+
+SELECT 
+    *
+FROM
+    TeachingAssistantRoles tar
+        JOIN
+    Section s ON s.sectionID = tar.sectionID 
+    JOIN
+    Term t ON t.termID = s.termID
+        JOIN
+    Course c ON c.courseID = s.courseID
+WHERE
+    c.courseID = 'COMP353' AND t.termName = 'SUMMER' AND t.termYear = 2019
+;
+			     
