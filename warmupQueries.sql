@@ -100,3 +100,17 @@ FROM
     group by s.supervisorID
     HAVING COUNT(s.supervisorID > 19)
 ;
+			     
+			  
+-- Q9
+-- For each department, find the total number of courses offered by the
+-- department.
+
+SELECT 
+    d.name, COUNT(c.courseID) AS NumberOfCourseOffered
+FROM
+    Course c
+        JOIN
+    Department d ON (d.departmentID = c.departmentID)
+GROUP BY d.departmentID;
+
