@@ -67,7 +67,7 @@ INSERT INTO Section VALUES
 
 INSERT INTO InstructorHistory VALUES
 -- instructorID, termID, sectionID.
-( 1, 1, "AA" );
+( 1, 1, "AA" ); 
 
 INSERT INTO Student VALUES
 -- studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa.
