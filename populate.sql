@@ -15,26 +15,39 @@ INSERT INTO Program VALUES
 ( 2, 1, "Computer Games", "Undergraduate", 90.0 ),
 ( 3, 1, "Information Systems", "Undergraduate", 90.0 ),
 ( 4, 1, "Computer Systems", "Undergraduate", 90.0 ),
-( 5, 1, "Web services & Applications", "Undergraduate", 90.0 );
+( 5, 1, "Web services & Applications", "Undergraduate", 90.0 ),
+( 6, 5, "Mathematics", "Undergraduate", 90.0 ),
+( 7, 1, "General Computer Science", "Undergraduate", 90.0 );
 
 INSERT INTO Course VALUES
-( "MATH201",	 "ELementary Functions", 	5 ,1,	 3.00 , 'COMP255'	); 
+( "MATH201", "ELementary Functions", 6, 5,	3.00 ); 
+( "MATH202", "College Algebra", 6, 5, 3.00, "MATH201" ),
+( "MATH203", "Differential & Integral Calculus I", 6, 5, 3.00 ),
+( "MATH204", "Vectors and Matrices", 6, 5, 3.00 ),
+( "MATH205", "Differential & Integral Calculus II", 6, 5, 3.00 ),
+( "BCEE231", "Structured Programming and Applications for Building and Civil Engineers", 0, 3, 3.00, "MATH204" ),
+( "BLDG212", "Building Engineering Drawing and Introduction to Design", 0, 3, 3.00 ),
+( "BCEE371", "Surveying", 0, 3, 3.00, "BCEE231" ),
+( "CIVI212", "Civil Engineering Drawing and Introduction to Design", 0, 4, 3.00 ),
+( "CIVI231", "Geology for Civil Engineers", 0, 4, 3.00 ),
+( "COMP232", "Mathematics for Computer", 7, 1, 3.00, "MATH204" ),
+( "COMP233", "Probability and Statistics for Computer Science", 7, 1, 3.00, "MATH205" ),
+( "COMP248", "Object-Oriented Programming", 7, 1, 3.50, "MATH204" ),
+( "COMP249", "Object-Oriented Programming", 7, 1, 3.50, "MATH205" ),
+( "COMP353", "Databases", 7, 1, 4.00, "COMP232" ),
+( "SOEN228", "System Hardware", 7, 1, 3.00, "MATH204" );
 
-( "MATH202", "College Algebra", 5, 3.00, "MATH201" ),
-( "MATH203", "Differential & Integral Calculus I", 5, 3.00 ),
-( "MATH204", "Vectors and Matrices", 5, 3.00 ),
-( "MATH205", "Differential & Integral Calculus II", 5, 3.00 ),
-( "BCEE231", "Structured Programming and Applications for Building and Civil Engineers", 3, 3.00, "MATH204" ),
-( "BLDG212", "Building Engineering Drawing and Introduction to Design", 3, 3.00 ),
-( "BCEE371", "Surveying", 3, 3.00, "BCEE231" ),
-( "CIVI212", "Civil Engineering Drawing and Introduction to Design", 4, 3.00 ),
-( "CIVI231", "Geology for Civil Engineers", 4, 3.00 ),
-( "COMP232", "Mathematics for Computer", 1, 3.00, "MATH204" ),
-( "COMP233", "Probability and Statistics for Computer Science", 1, 3.00, "MATH205" ),
-( "COMP248", "Object-Oriented Programming", 1, 3.50, "MATH204" ),
-( "COMP249", "Object-Oriented Programming", 1, 3.50, "MATH205" ),
-( "COMP353", "Databases", 1, 4.00, "COMP232" ),
-( "SOEN228", "System Hardware", 1, 3.00, "MATH204" );
+INSERT INTO Instructor VALUES
+( 1, "Khaleb", "Jababo" );
+
+INSERT INTO Class VALUES
+( 535, "H" );
+
+INSERT INTO Term VALUES
+( 1, "FALL", 2019 );
+
+INSERT INTO Section VALUES
+( "CC", "COMP353", 1, 535, "14:45:00", "17:30:00" );
 
 INSERT INTO Student VALUES
 ( 1, "John", "Wick", NULL, "john.wick@gmail.com", '1975-05-17', "Undergraduate", 4.30 ),
@@ -47,7 +60,6 @@ INSERT INTO StudentProgram VALUES
 ( 3, 5 );
 
 INSERT INTO StudentCourses VALUES
-( 1, "COMP353" ,'A+', 1,1);
-( 1, "COMP249" ),
-( 2, "COMP353" ),
-( 3, "COMP353" );
+( 1, "COMP353",'A+', 1, "CC" ),
+( 2, "COMP353", "B", 1, "CC" ),
+( 3, "COMP353", "C+", 1, "CC" );
