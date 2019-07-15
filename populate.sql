@@ -1,89 +1,208 @@
--- SQL script used to populate all Relations specified in the script dbStructure.sql.
+DROP TABLE IF EXISTS Department;
+CREATE TABLE Department (
+    departmentID INT AUTO_INCREMENT NOT NULL,
+    name CHAR(60) NOT NULL,
+    PRIMARY KEY (departmentID)
+)  ENGINE=INNODB;
 
--- Insert the following tuples into the relation called "Department".
-INSERT INTO Department VALUES 
--- departmentID, name.
-( 1, "Computer Science" ),
-( 2, "Software Engineering" ),
-( 3, "Building Engineering" ),
-( 4, "Civil Engineering" ),
-( 5, "Mathematics" ),
-( 6, "Mechanical Engineering" ),
-( 7, "Computer Engineering" ),
-( 8, "Engineering" ),
-( 9, "Electrical Engineering" ),
-( 10, "Aerospace Engineering" );
+DROP TABLE IF EXISTS Program;
+CREATE TABLE Program (
+    programID INT AUTO_INCREMENT NOT NULL,
+    departmentID INT NOT NULL,
+    name CHAR(60) NOT NULL,
+    typeofprogram ENUM('Undergraduate', 'Graduate', 'Graduate Thesis') NOT NULL,
+    credits DECIMAL(4 , 1),
+    PRIMARY KEY (programID),
+    FOREIGN KEY (departmentID) REFERENCES Department (departmentID)
+)  ENGINE=INNODB;
 
--- Insert the following tuples into the relation named "Program".
-INSERT INTO Program VALUES
--- programID, departmentID, name, typeofprogram, credits.
-( 1, 1, "Computer Application", "Undergraduate", 90.0 ),
-( 2, 1, "Computer Games", "Undergraduate", 90.0 ),
-( 3, 1, "Information Systems", "Undergraduate", 90.0 ),
-( 4, 1, "Computer Systems", "Undergraduate", 90.0 ),
-( 5, 1, "Web services & Applications", "Undergraduate", 90.0 ),
-( 6, 5, "Mathematics", "Undergraduate", 90.0 ),
-( 7, 1, "General Computer Science", "Undergraduate", 90.0 ),
-( 9, 3, "Building Engineering", "Undergraduate", 90.0),
-( 10, 4, "Civil Engineering", "Undergraduate", 90.0 );
 
-INSERT INTO Course VALUES
--- courseID, courseName, programID, departmentID, credits, prerequisite.
-( "MATH201", "ELementary Functions", 6, 5,	3.00, NULL ),
-( "MATH202", "College Algebra", 6, 5, 3.00, "MATH201" ),
-( "MATH203", "Differential & Integral Calculus I", 6, 5, 3.00, NULL ),
-( "MATH204", "Vectors and Matrices", 6, 5, 3.00, NULL ),
-( "MATH205", "Differential & Integral Calculus II", 6, 5, 3.00, "MATH203" ),
-( "BCEE231", "Structured Programming and Applications for Building and Civil Engineers", 9, 3, 3.00, "MATH204" ),
-( "BLDG212", "Building Engineering Drawing and Introduction to Design", 9, 3, 3.00, NULL ),
-( "BCEE371", "Surveying", 9, 3, 3.00, "BCEE231" ),
-( "CIVI212", "Civil Engineering Drawing and Introduction to Design", 10, 4, 3.00, NULL ),
-( "CIVI231", "Geology for Civil Engineers", 10, 4, 3.00, NULL ),
-( "COMP232", "Mathematics for Computer", 7, 1, 3.00, "MATH204" ),
-( "COMP233", "Probability and Statistics for Computer Science", 7, 1, 3.00, "MATH205" ),
-( "COMP248", "Object-Oriented Programming", 7, 1, 3.50, "MATH204" ),
-( "COMP249", "Object-Oriented Programming", 7, 1, 3.50, "MATH205" ),
-( "COMP353", "Databases", 7, 1, 4.00, "COMP232" ),
-( "SOEN228", "System Hardware", 7, 1, 3.00, "MATH204" );
+DROP TABLE IF EXISTS Course;
+CREATE TABLE Course (
+    courseID VARCHAR(8) NOT NULL,
+    courseName VARCHAR(25) NOT NULL,
+    programID INT NOT NULL,
+    departmentID INT NOT NULL,
+    credits DECIMAL(4 , 1),
+    prerequisite VARCHAR(8),
+    PRIMARY KEY (courseID),
+    FOREIGN KEY (programID) REFERENCES Program (programID)
+    -- FOREIGN KEY (departmentID) REFERENCES Program (departmentID)
+)  ENGINE=INNODB;
 
-INSERT INTO Instructor VALUES
--- instructorID, firstName, lastName3
-( 1, "Khaleb", "Jababo" );
+DROP TABLE IF EXISTS Instructor;
+CREATE TABLE Instructor (
+    instructorID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    PRIMARY KEY (instructorID)
+)  ENGINE=INNODB;
 
-INSERT INTO Class VALUES
--- room, building3
-( 405, "H" ),
-( 535, "H" );
 
-INSERT INTO Term VALUES
--- termID, termName, termYear3
-( 1, "SUMMER", 2019),
-( 2, "FALL", 2019 );
+DROP TABLE IF EXISTS Class;
+CREATE TABLE Class (
+    room INT NOT NULL,
+    building VARCHAR(2),
+    PRIMARY KEY (room , building)
+)  ENGINE=INNODB;
 
-INSERT INTO Section VALUES
--- sectionID, courseID, termID, room, startat, endat.
-( "AA", "COMP248", 1, 405, "14:00:00", "15:15:00" ),
-( "CC", "COMP353", 2, 535, "14:45:00", "17:30:00" );
+DROP TABLE IF EXISTS Term;
+CREATE TABLE Term (
+    termID INT NOT NULL ,
+    termName ENUM ('FALL','WINTER','SUMMER') NOT NULL,
+    termYear YEAR NOT NULL,
+    PRIMARY KEY (termID)
+)  ENGINE=INNODB;
 
-INSERT INTO InstructorHistory VALUES
--- instructorID, termID, sectionID.
-( 1, 1, "AA" ); 
 
-INSERT INTO Student VALUES
--- studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa.
-( 1, "John", "Wick", NULL, "john.wick@gmail.com", '1975-05-17', "Undergraduate", 4.30 ),
-( 2, "John", "Smith", NULL, "john.smith@gmail.com", '1998-09-02', "Undergraduate", 3.49 ),
-( 3, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 );
+DROP TABLE IF EXISTS Section;
+CREATE TABLE Section (
+    sectionID VARCHAR(4),
+    courseID VARCHAR(8) NOT NULL,
+    termID INT NOT NULL,
+    room INT NOT NULL,
+    startat TIME NOT NULL ,
+    endat TIME NOT NULL,
+	PRIMARY  KEY (sectionID),
+	FOREIGN KEY (termID) REFERENCES Term (termID),
+    FOREIGN KEY (room) REFERENCES Class (room),
+    UNIQUE KEY (sectionID , courseID , startat , endat)
+)  ENGINE=INNODB;
 
-INSERT INTO StudentProgram VALUES
--- studentID, programID.
-( 1, 3 ),
-( 2, 1 ),
-( 3, 5 );
+DROP TABLE IF EXISTS InstructorHistory;
+CREATE TABLE InstructorHistory (
+    instructorID INT NOT NULL,
+    termID INT NOT NULL ,
+    sectionID VARCHAR(4),
+    FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
+	FOREIGN KEY (termID) REFERENCES Term (termID),
+	FOREIGN KEY (sectionID) REFERENCES Section (sectionID)
+)  ENGINE=INNODB;
 
-INSERT INTO StudentCourses VALUES
--- studentID, courseID,	grade, termID, sectionID.
-( 1, "COMP353", "A+", 2, "CC" ),
-( 1, "COMP248", "A", 1, "AA"),
-( 2, "COMP353", "B", 2, "CC" ),
-( 3, "COMP353", "C+", 2, "CC" );
+DROP TABLE IF EXISTS InstructorSection;
+CREATE TABLE InstructorSection (
+    instructorID INT NOT NULL,
+    sectionID VARCHAR(4) NOT NULL,
+    departmentID INT NOT NULL,
+	courseID VARCHAR(8) NOT NULL,
+	startat TIME NOT NULL ,
+    endat TIME NOT NULL,
+    FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
+    FOREIGN KEY (sectionID) REFERENCES Section (sectionID),
+    FOREIGN KEY (departmentID) REFERENCES Department (departmentID)
+--  UNIQUE KEY (instructorID , sectionID , departmentID),
+-- 	UNIQUE KEY (instructorID , startat , endat)
+-- 	CONSTRAINT CHK_EndTime_After_StartTime CHECK (endat > startat)
+)  ENGINE=INNODB;
+
+
+DROP TABLE IF EXISTS Student;
+CREATE TABLE Student (
+    studentID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    phone INT,
+    email VARCHAR(40),
+    dateOfBirth DATE NOT NULL,
+    studentType ENUM('Undergraduate', 'Graduate', 'Graduate Thesis') NOT NULL,
+    gpa DECIMAL(3 , 2 ) NOT NULL DEFAULT 0.00,
+    PRIMARY KEY (studentID)
+)  ENGINE=INNODB;
+
+
+DROP TABLE IF EXISTS StudentProgram;
+CREATE TABLE StudentProgram (
+    studentID INT NOT NULL,
+    programID INT NOT NULL,
+    FOREIGN KEY (studentID) REFERENCES Student (studentID),
+    FOREIGN KEY (programID) REFERENCES Program (programID),
+    UNIQUE KEY (studentID , programID)
+)  ENGINE=INNODB;
+
+
+DROP TABLE IF EXISTS StudentCourses;
+CREATE TABLE StudentCourses (
+    studentID INT NOT NULL,
+    courseID VARCHAR(8) NOT NULL,
+	grade VARCHAR(3) ,
+    termID INT NOT NULL,
+    sectionID VARCHAR(4),
+    FOREIGN KEY (studentID) REFERENCES Student (studentID),
+    FOREIGN KEY (courseID) REFERENCES Course (courseID),
+    FOREIGN KEY (sectionID) REFERENCES Section (sectionID)
+)  ENGINE=INNODB;
+
+DROP TABLE IF EXISTS Advisor;
+CREATE TABLE Advisor (
+    advisorID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    PRIMARY KEY (advisorID)
+)  ENGINE=INNODB;
+
+DROP TABLE IF EXISTS StudentAdvisor;
+CREATE TABLE StudentAdvisor (
+    studentID INT NOT NULL,
+    advisorID INT NOT NULL,
+    programID INT NOT NULL,
+    FOREIGN KEY (studentID) REFERENCES Student (studentID),
+    FOREIGN KEY (advisorID) REFERENCES Advisor (advisorID),
+    FOREIGN KEY (programID) REFERENCES Program (programID),
+    UNIQUE KEY (studentID , programID)
+)  ENGINE=INNODB;
+
+
+
+DROP TABLE IF EXISTS TeachingAssistant;
+CREATE TABLE TeachingAssistant (
+    teachingAssistantID INT AUTO_INCREMENT NOT NULL,
+    studentID INT NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    dateOfBirth DATE,
+    gpa DECIMAL(3 , 2 ),
+    PRIMARY KEY (teachingAssistantID),
+    FOREIGN KEY (studentID) REFERENCES Student(studentID)
+)  ENGINE=INNODB; 
+
+
+DROP TABLE IF EXISTS TeachingAssistantRoles;
+CREATE TABLE TeachingAssistantRoles (
+    sectionID VARCHAR(4),
+    teachingAssistantID INT NOT NULL,
+	room INT NOT NULL,
+	typeofrole ENUM ('tutorial','lab','marker'),
+    hours TIME NOT NULL,
+	FOREIGN KEY (teachingAssistantID) REFERENCES TeachingAssistant (teachingAssistantID),
+	FOREIGN KEY (sectionID) REFERENCES Section (sectionID)
+    -- add hours contraints 
+)  ENGINE=INNODB; 
+
+DROP TABLE IF EXISTS ResearchFunding;
+CREATE TABLE ResearchFunding (
+    researchFundingID INT AUTO_INCREMENT NOT NULL,
+    amount DECIMAL(9 , 2 ),
+    researchDate DATE,
+    researchName VARCHAR(50) NOT NULL,
+    PRIMARY KEY (researchFundingID)
+)  ENGINE=INNODB;
+
+DROP TABLE IF EXISTS Supervisor;
+CREATE TABLE Supervisor (
+    supervisorID INT AUTO_INCREMENT NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    fundingAvailable BOOLEAN NOT NULL DEFAULT false,
+    PRIMARY KEY (supervisorID)
+)  ENGINE=INNODB; 
+
+DROP TABLE IF EXISTS StudentSupervisor;
+CREATE TABLE StudentSupervisor (
+    studentID INT NOT NULL,
+    supervisorID INT NOT NULL,
+    programID INT NOT NULL,
+    FOREIGN KEY (studentID) REFERENCES Student (studentID),
+    FOREIGN KEY (supervisorID) REFERENCES Supervisor (supervisorID),
+    FOREIGN KEY (programID) REFERENCES Program (programID),
+    UNIQUE KEY (studentID , programID)
+)  ENGINE=INNODB;
