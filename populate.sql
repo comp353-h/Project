@@ -73,6 +73,6 @@ INSERT INTO StudentProgram VALUES
 INSERT INTO StudentCourses VALUES
 -- studentID, courseID,	grade, termID, sectionID
 ( 1, "COMP353","A+", 2, "CC" ),
-( 2, "COMP248", "A", 1, "AA")
+( 2, "COMP248", "A", 1, "AA"),
 ( 3, "COMP353", "B", 2, "CC" ),
 ( 4, "COMP353", "C+", 2, "CC" );
