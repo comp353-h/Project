@@ -42,4 +42,4 @@ INSERT INTO 'Course' VALUES
 ( 'COMP248', 'Object-Oriented Programming', '1', '3.50', 'MATH204' ),
 ( 'COMP249', 'Object-Oriented Programming', '1', '3.50', 'MATH205' ),
 ( 'COMP353', 'Databases', '1', '4.00', 'COMP232' ),
-
+( 'SOEN228', 'System Hardware', '1', '3.00', 'MATH204' );
