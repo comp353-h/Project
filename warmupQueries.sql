@@ -51,6 +51,6 @@ FROM
     -- c.courseID = 'COMP352' AND  
 ;
 
-
-
+-- Q4 
+SELECT p.name, p.credits FROM Program p where departmentID = 1;
 
