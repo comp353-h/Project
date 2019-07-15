@@ -41,13 +41,23 @@ INSERT INTO Instructor VALUES
 ( 1, "Khaleb", "Jababo" );
 
 INSERT INTO Class VALUES
+-- room, building
+( 405, "H" ),
 ( 535, "H" );
 
 INSERT INTO Term VALUES
-( 1, "FALL", 2019 );
+-- termID, termName, termYear
+( 1, "SUMMER", 2019),
+( 2, "FALL", 2019 );
 
 INSERT INTO Section VALUES
-( "CC", "COMP353", 1, 535, "14:45:00", "17:30:00" );
+-- sectionID, courseID, termID, room, startat, endat
+( "AA", "COMP248", 1, 405, "14:00:00", "15:15:00" ),
+( "CC", "COMP353", 2, 535, "14:45:00", "17:30:00" );
+
+INSERT INTO InstructorHistory VALUES
+-- instructorID, termID, sectionID
+( 1, 1, "AA" );
 
 INSERT INTO Student VALUES
 ( 1, "John", "Wick", NULL, "john.wick@gmail.com", '1975-05-17', "Undergraduate", 4.30 ),
@@ -55,11 +65,14 @@ INSERT INTO Student VALUES
 ( 3, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 );
 
 INSERT INTO StudentProgram VALUES
+-- studentID, programID
 ( 1, 3 ),
 ( 2, 1 ),
 ( 3, 5 );
 
 INSERT INTO StudentCourses VALUES
-( 1, "COMP353",'A+', 1, "CC" ),
-( 2, "COMP353", "B", 1, "CC" ),
-( 3, "COMP353", "C+", 1, "CC" );
+-- studentID, courseID,	grade, termID, sectionID
+( 1, "COMP353","A+", 2, "CC" ),
+( 2, "COMP248", "A", 1, "AA")
+( 3, "COMP353", "B", 2, "CC" ),
+( 4, "COMP353", "C+", 2, "CC" );
