@@ -18,7 +18,8 @@ INSERT INTO Program VALUES
 ( 5, 1, "Web services & Applications", "Undergraduate", 90.0 );
 
 INSERT INTO Course VALUES
-( "MATH201", "ELementary Functions", 5, 3.00 ), 
+( "MATH201",	 "ELementary Functions", 	5 ,1,	 3.00 , 'COMP255'	); 
+
 ( "MATH202", "College Algebra", 5, 3.00, "MATH201" ),
 ( "MATH203", "Differential & Integral Calculus I", 5, 3.00 ),
 ( "MATH204", "Vectors and Matrices", 5, 3.00 ),
@@ -35,27 +36,18 @@ INSERT INTO Course VALUES
 ( "COMP353", "Databases", 1, 4.00, "COMP232" ),
 ( "SOEN228", "System Hardware", 1, 3.00, "MATH204" );
 
-INSERT INTO Instructor VALUES
-( 1, "Khaleb", "Jababo" );
-
-INSERT INTO class VALUES
-( 535, "H" );
-
-INSERT INTO Section VALUES
-( "CC", "COMP353", 535, "14:45:00", "17:30:00" );
-
 INSERT INTO Student VALUES
-( 1, "John", "Wick", NULL, "john.wick@gmail.com", 1975-05-17, "Undergraduate", 4.30 ),
-( 2, "John", "Smith", NULL, "john.smith@gmail.com", 1998-09-02, "Undergraduate", 3.49 ),
-( 3, "Jane", "Doe", NULL, "jane.doe@gmail.com", 1995-03-29, "Undergraduate", 2.73 );
+( 1, "John", "Wick", NULL, "john.wick@gmail.com", '1975-05-17', "Undergraduate", 4.30 ),
+( 2, "John", "Smith", NULL, "john.smith@gmail.com", '1998-09-02', "Undergraduate", 3.49 ),
+( 3, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 );
 
 INSERT INTO StudentProgram VALUES
 ( 1, 3 ),
 ( 2, 1 ),
 ( 3, 5 );
 
-INSERT INTO StudentEnrolledCourses VALUES
-( 1, "COMP353", "CC" ),
+INSERT INTO StudentCourses VALUES
+( 1, "COMP353" ,'A+', 1,1);
 ( 1, "COMP249" ),
-( 2, "COMP353", "CC" ),
-( 3, "COMP353", "CC" );
+( 2, "COMP353" ),
+( 3, "COMP353" );
