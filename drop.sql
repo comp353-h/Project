@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS `Advisor`;
 DROP TABLE IF EXISTS `StudentCourses`;
 DROP TABLE IF EXISTS `Course`;
 DROP TABLE IF EXISTS `StudentProgram`;
+DROP TABLE IF EXISTS `StudentSupervisor`;
 DROP TABLE IF EXISTS `Program`;
 DROP TABLE IF EXISTS `Department`;
 DROP TABLE IF EXISTS `InstructorHistory`;
