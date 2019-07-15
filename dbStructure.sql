@@ -63,7 +63,8 @@ CREATE TABLE Section (
     room INT NOT NULL,
     startat TIME NOT NULL ,
     endat TIME NOT NULL,
-	PRIMARY  KEY (sectionID),
+	PRIMARY  KEY (courseID, sectionID),
+	FOREIGN KEY (courseID) REFERENCES Course (courseID),
 	FOREIGN KEY (termID) REFERENCES Term (termID),
     FOREIGN KEY (room) REFERENCES Class (room),
     UNIQUE KEY (sectionID , courseID , startat , endat)
@@ -73,10 +74,12 @@ DROP TABLE IF EXISTS InstructorHistory;
 CREATE TABLE InstructorHistory (
     instructorID INT NOT NULL,
     termID INT NOT NULL ,
-    sectionID VARCHAR(4),
+    sectionID VARCHAR(4) NOT NULL,
+    courseID VARCHAR(8) NOT NULL,
     FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
 	FOREIGN KEY (termID) REFERENCES Term (termID),
-	FOREIGN KEY (sectionID) REFERENCES Section (sectionID)
+	FOREIGN KEY (courseID,sectionID) REFERENCES Section (courseID,sectionID)
+-- 	FOREIGN KEY (courseID) REFERENCES Course (courseID)
 )  ENGINE=INNODB;
 
 DROP TABLE IF EXISTS InstructorSection;
