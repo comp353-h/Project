@@ -18,8 +18,8 @@ INSERT INTO Program VALUES
 ( 5, 1, "Web services & Applications", "Undergraduate", 90.0 ),
 ( 6, 5, "Mathematics", "Undergraduate", 90.0 ),
 ( 7, 1, "General Computer Science", "Undergraduate", 90.0 ),
-( 9, 3, "Building Engineering", 90.0 ),
-( 10, 4, "Civil Engineering", 90.0 );
+( 9, 3, "Building Engineering", "Undergraduate", 90.0),
+( 10, 4, "Civil Engineering", "Undergraduate", 90.0 );
 
 INSERT INTO Course VALUES
 ( "MATH201", "ELementary Functions", 6, 5,	3.00, NULL ),
@@ -75,6 +75,6 @@ INSERT INTO StudentProgram VALUES
 INSERT INTO StudentCourses VALUES
 -- studentID, courseID,	grade, termID, sectionID
 ( 1, "COMP353","A+", 2, "CC" ),
-( 2, "COMP248", "A", 1, "AA"),
-( 3, "COMP353", "B", 2, "CC" ),
-( 4, "COMP353", "C+", 2, "CC" );
+( 1, "COMP248", "A", 1, "AA"),
+( 2, "COMP353", "B", 2, "CC" ),
+( 3, "COMP353", "C+", 2, "CC" );

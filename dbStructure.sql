@@ -20,7 +20,7 @@ CREATE TABLE Program (
 DROP TABLE IF EXISTS Course;
 CREATE TABLE Course (
     courseID VARCHAR(8) NOT NULL,
-    courseName VARCHAR(25) NOT NULL,
+    courseName VARCHAR(100) NOT NULL,
     programID INT NOT NULL,
     departmentID INT NOT NULL,
     credits DECIMAL(4 , 1),
