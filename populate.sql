@@ -1,4 +1,8 @@
+-- SQL script used to populate all Relations specified in the script dbStructure.sql.
+
+-- Insert the following tuples into the relation called "Department".
 INSERT INTO Department VALUES 
+-- departmentID, name.
 ( 1, "Computer Science" ),
 ( 2, "Software Engineering" ),
 ( 3, "Building Engineering" ),
@@ -10,7 +14,9 @@ INSERT INTO Department VALUES
 ( 9, "Electrical Engineering" ),
 ( 10, "Aerospace Engineering" );
 
+-- Insert the following tuples into the relation named "Program".
 INSERT INTO Program VALUES
+-- programID, departmentID, name, typeofprogram, credits.
 ( 1, 1, "Computer Application", "Undergraduate", 90.0 ),
 ( 2, 1, "Computer Games", "Undergraduate", 90.0 ),
 ( 3, 1, "Information Systems", "Undergraduate", 90.0 ),
@@ -22,6 +28,7 @@ INSERT INTO Program VALUES
 ( 10, 4, "Civil Engineering", "Undergraduate", 90.0 );
 
 INSERT INTO Course VALUES
+-- courseID, courseName, programID, departmentID, credits, prerequisite.
 ( "MATH201", "ELementary Functions", 6, 5,	3.00, NULL ),
 ( "MATH202", "College Algebra", 6, 5, 3.00, "MATH201" ),
 ( "MATH203", "Differential & Integral Calculus I", 6, 5, 3.00, NULL ),
@@ -40,41 +47,43 @@ INSERT INTO Course VALUES
 ( "SOEN228", "System Hardware", 7, 1, 3.00, "MATH204" );
 
 INSERT INTO Instructor VALUES
+-- instructorID, firstName, lastName3
 ( 1, "Khaleb", "Jababo" );
 
 INSERT INTO Class VALUES
--- room, building
+-- room, building3
 ( 405, "H" ),
 ( 535, "H" );
 
 INSERT INTO Term VALUES
--- termID, termName, termYear
+-- termID, termName, termYear3
 ( 1, "SUMMER", 2019),
 ( 2, "FALL", 2019 );
 
 INSERT INTO Section VALUES
--- sectionID, courseID, termID, room, startat, endat
+-- sectionID, courseID, termID, room, startat, endat.
 ( "AA", "COMP248", 1, 405, "14:00:00", "15:15:00" ),
 ( "CC", "COMP353", 2, 535, "14:45:00", "17:30:00" );
 
 INSERT INTO InstructorHistory VALUES
--- instructorID, termID, sectionID
+-- instructorID, termID, sectionID.
 ( 1, 1, "AA" );
 
 INSERT INTO Student VALUES
+-- studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa.
 ( 1, "John", "Wick", NULL, "john.wick@gmail.com", '1975-05-17', "Undergraduate", 4.30 ),
 ( 2, "John", "Smith", NULL, "john.smith@gmail.com", '1998-09-02', "Undergraduate", 3.49 ),
 ( 3, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 );
 
 INSERT INTO StudentProgram VALUES
--- studentID, programID
+-- studentID, programID.
 ( 1, 3 ),
 ( 2, 1 ),
 ( 3, 5 );
 
 INSERT INTO StudentCourses VALUES
--- studentID, courseID,	grade, termID, sectionID
-( 1, "COMP353","A+", 2, "CC" ),
+-- studentID, courseID,	grade, termID, sectionID.
+( 1, "COMP353", "A+", 2, "CC" ),
 ( 1, "COMP248", "A", 1, "AA"),
 ( 2, "COMP353", "B", 2, "CC" ),
 ( 3, "COMP353", "C+", 2, "CC" );
