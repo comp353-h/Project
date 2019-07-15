@@ -20,7 +20,7 @@ CREATE TABLE Program (
 DROP TABLE IF EXISTS Course;
 CREATE TABLE Course (
     courseID VARCHAR(8) NOT NULL,
-    courseName VARCHAR(100) NOT NULL,
+    courseName VARCHAR(25) NOT NULL,
     programID INT NOT NULL,
     departmentID INT NOT NULL,
     credits DECIMAL(4 , 1),
@@ -151,6 +151,8 @@ CREATE TABLE StudentAdvisor (
     UNIQUE KEY (studentID , programID)
 )  ENGINE=INNODB;
 
+
+
 DROP TABLE IF EXISTS TeachingAssistant;
 CREATE TABLE TeachingAssistant (
     teachingAssistantID INT AUTO_INCREMENT NOT NULL,
@@ -193,3 +195,14 @@ CREATE TABLE Supervisor (
     fundingAvailable BOOLEAN NOT NULL DEFAULT false,
     PRIMARY KEY (supervisorID)
 )  ENGINE=INNODB; 
+
+DROP TABLE IF EXISTS StudentSupervisor;
+CREATE TABLE StudentSupervisor (
+    studentID INT NOT NULL,
+    supervisorID INT NOT NULL,
+    programID INT NOT NULL,
+    FOREIGN KEY (studentID) REFERENCES Student (studentID),
+    FOREIGN KEY (supervisorID) REFERENCES Supervisor (supervisorID),
+    FOREIGN KEY (programID) REFERENCES Program (programID),
+    UNIQUE KEY (studentID , programID)
+)  ENGINE=INNODB;
