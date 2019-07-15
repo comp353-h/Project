@@ -3,7 +3,7 @@ INSERT INTO Department VALUES
 ( 2, "Software Engineering" ),
 ( 3, "Building Engineering" ),
 ( 4, "Civil Engineering" ),
-( 5, "Mathematics" )
+( 5, "Mathematics" ),
 ( 6, "Mechanical Engineering" ),
 ( 7, "Computer Engineering" ),
 ( 8, "Engineering" ),
@@ -37,8 +37,16 @@ INSERT INTO Course VALUES
 
 INSERT INTO Student VALUES
 ( 1, "John", "Wick", NULL, "john.wick@gmail.com", 1975-05-17, "Undergraduate", 4.30 ),
-( 2, "John", "Smith", NULL, "john.smith@gmail.com", 1998-09-02, "Undergraduate", 3.49 );
+( 2, "John", "Smith", NULL, "john.smith@gmail.com", 1998-09-02, "Undergraduate", 3.49 ),
+( 3, "Jane", "Doe", NULL, "jane.doe@gmail.com", 1995-03-29, "Undergraduate", 2.73 );
 
 INSERT INTO StudentProgram VALUES
 ( 1, 3 ),
-( 2, 1 );
+( 2, 1 ),
+( 3, 5 );
+
+INSERT INTO StudentEnrolledCourses VALUES
+( 1, "COMP353" ),
+( 1, "COMP249" ),
+( 2, "COMP353" ),
+( 3, "COMP353" );
