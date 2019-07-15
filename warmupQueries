@@ -31,6 +31,25 @@ FROM
 WHERE
     d.departmentID = 1;
 
+-- Q3
+
+SELECT 
+    *
+FROM
+    InstructorHistory ih
+        JOIN
+    Instructor i ON (ih.instructorID = i.instructorID)
+        JOIN
+    Term t ON (t.termID = ih.termID)
+        JOIN
+    Section s ON (s.sectionID = ih.sectionID)
+        JOIN
+    Course c ON (c.courseID =  s.courseID)
+	WHERE i.firstName = (SELECT * FROM table1 WHERE ...))
+
+    
+    -- c.courseID = 'COMP352' AND  
+;
 
 
 
