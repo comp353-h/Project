@@ -1,0 +1,37 @@
+-- Q1 
+
+SELECT 
+    s.firstName, s.lastName, c.courseName, sc.grade
+FROM
+    Student s
+        JOIN
+    StudentCourses sc ON s.studentID = sc.studentID
+        JOIN
+    Course c ON c.courseID = sc.courseID
+WHERE
+    c.courseID = 'COMP353'
+        AND (sc.grade = 'A+' OR sc.grade = 'A');
+
+
+
+-- Q2
+
+SELECT 
+    s.firstName,
+    s.lastName,
+    COUNT(sp.studentID) AS NumberOfProgarms
+FROM
+    StudentProgram sp
+        JOIN
+    Student s ON (s.studentID = sp.studentID)
+        JOIN
+    Program p ON (sp.programID = p.programID)
+        JOIN
+    Department d ON (p.departmentID = d.departmentID)
+WHERE
+    d.departmentID = 1;
+
+
+
+
+
