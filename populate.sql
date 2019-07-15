@@ -35,6 +35,15 @@ INSERT INTO Course VALUES
 ( "COMP353", "Databases", 1, 4.00, "COMP232" ),
 ( "SOEN228", "System Hardware", 1, 3.00, "MATH204" );
 
+INSERT INTO Instructor VALUES
+( 1, "Khaleb", "Jababo" );
+
+INSERT INTO class VALUES
+( 535, "H" );
+
+INSERT INTO Section VALUES
+( "CC", "COMP353", 535, "14:45:00", "17:30:00" );
+
 INSERT INTO Student VALUES
 ( 1, "John", "Wick", NULL, "john.wick@gmail.com", 1975-05-17, "Undergraduate", 4.30 ),
 ( 2, "John", "Smith", NULL, "john.smith@gmail.com", 1998-09-02, "Undergraduate", 3.49 ),
@@ -46,7 +55,7 @@ INSERT INTO StudentProgram VALUES
 ( 3, 5 );
 
 INSERT INTO StudentEnrolledCourses VALUES
-( 1, "COMP353" ),
+( 1, "COMP353", "CC" ),
 ( 1, "COMP249" ),
-( 2, "COMP353" ),
-( 3, "COMP353" );
+( 2, "COMP353", "CC" ),
+( 3, "COMP353", "CC" );
