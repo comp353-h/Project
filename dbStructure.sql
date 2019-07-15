@@ -16,13 +16,12 @@ CREATE TABLE Program (
     FOREIGN KEY (departmentID) REFERENCES Department (departmentID)
 )  ENGINE=INNODB;
 
-
 DROP TABLE IF EXISTS Course;
 CREATE TABLE Course (
     courseID VARCHAR(8) NOT NULL,
     courseName VARCHAR(25) NOT NULL,
-    programID INT NOT NULL,
     departmentID INT NOT NULL,
+    programID INT NOT NULL,
     credits DECIMAL(4 , 1),
     prerequisite VARCHAR(8),
     PRIMARY KEY (courseID),
@@ -63,7 +62,8 @@ CREATE TABLE Section (
     room INT NOT NULL,
     startat TIME NOT NULL ,
     endat TIME NOT NULL,
-	PRIMARY  KEY (sectionID),
+	PRIMARY  KEY (courseID, sectionID),
+	FOREIGN KEY (courseID) REFERENCES Course (courseID),
 	FOREIGN KEY (termID) REFERENCES Term (termID),
     FOREIGN KEY (room) REFERENCES Class (room),
     UNIQUE KEY (sectionID , courseID , startat , endat)
@@ -72,23 +72,25 @@ CREATE TABLE Section (
 DROP TABLE IF EXISTS InstructorHistory;
 CREATE TABLE InstructorHistory (
     instructorID INT NOT NULL,
-    termID INT NOT NULL ,
-    sectionID VARCHAR(4),
+    termID INT NOT NULL,
+    courseID VARCHAR(8) NOT NULL,
+    sectionID VARCHAR(4) NOT NULL,
     FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
 	FOREIGN KEY (termID) REFERENCES Term (termID),
-	FOREIGN KEY (sectionID) REFERENCES Section (sectionID)
+	FOREIGN KEY (courseID, sectionID) REFERENCES Section (courseID, sectionID)
+-- 	FOREIGN KEY (courseID) REFERENCES Course (courseID)
 )  ENGINE=INNODB;
 
 DROP TABLE IF EXISTS InstructorSection;
 CREATE TABLE InstructorSection (
     instructorID INT NOT NULL,
+    courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(4) NOT NULL,
     departmentID INT NOT NULL,
-	courseID VARCHAR(8) NOT NULL,
-	startat TIME NOT NULL ,
+	startat TIME NOT NULL,
     endat TIME NOT NULL,
     FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
-    FOREIGN KEY (sectionID) REFERENCES Section (sectionID),
+    FOREIGN KEY (courseID, sectionID) REFERENCES Section (courseID, sectionID),
     FOREIGN KEY (departmentID) REFERENCES Department (departmentID)
 --  UNIQUE KEY (instructorID , sectionID , departmentID),
 -- 	UNIQUE KEY (instructorID , startat , endat)
@@ -124,12 +126,11 @@ DROP TABLE IF EXISTS StudentCourses;
 CREATE TABLE StudentCourses (
     studentID INT NOT NULL,
     courseID VARCHAR(8) NOT NULL,
-	grade VARCHAR(3) ,
-    termID INT NOT NULL,
     sectionID VARCHAR(4),
+    termID INT NOT NULL,
+	grade VARCHAR(3) ,
     FOREIGN KEY (studentID) REFERENCES Student (studentID),
-    FOREIGN KEY (courseID) REFERENCES Course (courseID),
-    FOREIGN KEY (sectionID) REFERENCES Section (sectionID)
+    FOREIGN KEY (courseID, sectionID) REFERENCES Section (courseID, sectionID)
 )  ENGINE=INNODB;
 
 DROP TABLE IF EXISTS Advisor;
@@ -150,8 +151,6 @@ CREATE TABLE StudentAdvisor (
     FOREIGN KEY (programID) REFERENCES Program (programID),
     UNIQUE KEY (studentID , programID)
 )  ENGINE=INNODB;
-
-
 
 DROP TABLE IF EXISTS TeachingAssistant;
 CREATE TABLE TeachingAssistant (
