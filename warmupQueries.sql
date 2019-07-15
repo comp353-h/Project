@@ -54,3 +54,13 @@ FROM
 -- Q4 
 SELECT p.name, p.credits FROM Program p where departmentID = 1;
 
+-- Q5 
+SELECT 
+    studentID, firstName, lastName
+FROM
+    Student
+WHERE
+    studentID NOT IN (SELECT 
+            studentID
+        FROM
+            StudentAdvisor);
