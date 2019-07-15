@@ -17,7 +17,9 @@ INSERT INTO Program VALUES
 ( 4, 1, "Computer Systems", "Undergraduate", 90.0 ),
 ( 5, 1, "Web services & Applications", "Undergraduate", 90.0 ),
 ( 6, 5, "Mathematics", "Undergraduate", 90.0 ),
-( 7, 1, "General Computer Science", "Undergraduate", 90.0 );
+( 7, 1, "General Computer Science", "Undergraduate", 90.0 ),
+( 9, 3, "Building Engineering", 90.0 ),
+( 10, 4, "Civil Engineering", 90.0 );
 
 INSERT INTO Course VALUES
 ( "MATH201", "ELementary Functions", 6, 5,	3.00, NULL ),
@@ -25,11 +27,11 @@ INSERT INTO Course VALUES
 ( "MATH203", "Differential & Integral Calculus I", 6, 5, 3.00, NULL ),
 ( "MATH204", "Vectors and Matrices", 6, 5, 3.00, NULL ),
 ( "MATH205", "Differential & Integral Calculus II", 6, 5, 3.00, "MATH203" ),
-( "BCEE231", "Structured Programming and Applications for Building and Civil Engineers", 0, 3, 3.00, "MATH204" ),
-( "BLDG212", "Building Engineering Drawing and Introduction to Design", 0, 3, 3.00, NULL ),
-( "BCEE371", "Surveying", 0, 3, 3.00, "BCEE231", NULL ),
-( "CIVI212", "Civil Engineering Drawing and Introduction to Design", 0, 4, 3.00, NULL ),
-( "CIVI231", "Geology for Civil Engineers", 0, 4, 3.00, NULL ),
+( "BCEE231", "Structured Programming and Applications for Building and Civil Engineers", 9, 3, 3.00, "MATH204" ),
+( "BLDG212", "Building Engineering Drawing and Introduction to Design", 9, 3, 3.00, NULL ),
+( "BCEE371", "Surveying", 9, 3, 3.00, "BCEE231" ),
+( "CIVI212", "Civil Engineering Drawing and Introduction to Design", 10, 4, 3.00, NULL ),
+( "CIVI231", "Geology for Civil Engineers", 10, 4, 3.00, NULL ),
 ( "COMP232", "Mathematics for Computer", 7, 1, 3.00, "MATH204" ),
 ( "COMP233", "Probability and Statistics for Computer Science", 7, 1, 3.00, "MATH205" ),
 ( "COMP248", "Object-Oriented Programming", 7, 1, 3.50, "MATH204" ),
