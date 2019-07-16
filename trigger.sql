@@ -24,3 +24,20 @@ IF ( totalhours ) > 260 THEN
            SET MESSAGE_TEXT = 'Update will make the TA work for more 260 hours';
     END IF;
 END;$$
+
+DROP TRIGGER IF EXISTS check_insert_hours_overlap;
+DELIMITER $$
+CREATE TRIGGER check_insert_hours_overlap BEFORE INSERT ON InstructorSection
+FOR EACH ROW
+BEGIN
+	IF EXISTS (	
+ SELECT * FROM InstructorSection
+             WHERE instructorID=NEW.instructorID 
+             AND
+             (sectionID = startat <= NEW.endat OR endat >= NEW.startat)
+             )  
+THEN
+	SIGNAL SQLSTATE '45000'
+           SET MESSAGE_TEXT = 'There is a time conflict with existing registered course-section';
+    END IF;
+END;$$
