@@ -176,3 +176,11 @@ INSERT INTO TeachingAssistantRoles VALUES
 ( "MATH203", "HC", 1, 2, 405, "tutorial", '100:00:00' ),
 ( "MATH205", "CR", 1, 2, 407, "tutorial", '100:00:00' ),
 ( "COMP353", "BR", 6, 1, 907, "lab", '100:00:00' );
+
+INSERT INTO Supervisor VALUES
+-- supervisorID, firstName, lastName, fundingAvailable
+( 1, "Tony", "Stark", true );
+
+INSERT INTO StudentSupervisor VALUES
+-- studentID, supervisorID, programID
+( 5, 1, 11 );
