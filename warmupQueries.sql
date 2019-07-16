@@ -43,6 +43,27 @@ WHERE NumberOfPrograms > 1;
 /*Find the name of all the instructors who taught Comp 352 in the fall term
 of 2018 but have never taught the same course before.*/
 
+
+SELECT 
+    firstName,lastName
+FROM
+    Instructor
+WHERE
+    instructorID IN (SELECT 
+            instructorID
+        FROM
+            InstructorHistory
+        WHERE
+            courseID = 'comp352' AND termID = 4
+                AND instructorID NOT IN (SELECT 
+                    instructorID
+                FROM
+                    InstructorHistory
+                WHERE
+                    courseID = 'comp352' AND termID < 4)
+        GROUP BY instructorID);
+
+
 /*SELECT * FROM
     InstructorHistory ih
         JOIN
