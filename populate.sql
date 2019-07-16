@@ -64,6 +64,7 @@ INSERT INTO Term VALUES
 INSERT INTO Section VALUES
 -- sectionID, courseID, termID, room, startat, endat.
 ( "AA", "COMP248", 1, 405, "14:00:00", "15:15:00" ),
+( "BB", "COMP248", 2, 405, "14:00:00", "15:15:00" ),
 ( "CC", "COMP353", 2, 535, "14:45:00", "17:30:00" );
 
 INSERT INTO InstructorHistory VALUES
