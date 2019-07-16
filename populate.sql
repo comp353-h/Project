@@ -71,15 +71,16 @@ INSERT INTO Term VALUES
 
 INSERT INTO Section VALUES
 -- sectionID, courseID, termID, room, startat, endat.
-( "AA", "COMP248", 1, 405, "14:00:00", "15:15:00" ),
-( "BB", "COMP248", 2, 405, "14:00:00", "15:15:00" ),
-( "BB", "MATH204", 2, 535, "09:00:00", "10:15:00" ),
-( "CC", "COMP353", 2, 535, "14:45:00", "17:30:00" );
+( "AA", "COMP248", 1, 405, "H", "14:00:00", "15:15:00" ),
+( "CA", "COMP233", 1, 409, "H", "09:00:00", "10:15:00" ),
+( "BB", "COMP248", 2, 407, "H", "14:00:00", "15:15:00" ),
+( "BB", "MATH204", 2, 535, "H", "09:00:00", "10:15:00" ),
+( "CC", "COMP353", 2, 1123, "JM", "14:45:00", "17:30:00" );
 
 INSERT INTO InstructorHistory VALUES
 -- instructorID, termID, courseID, sectionID.
 ( 1, 1, "COMP248", "AA" ),
-( 2, 2, "COMP248", "BB" ); 
+( 2, 2, "COMP248", "BB" );
 
 INSERT INTO Student VALUES
 -- studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa.
@@ -103,5 +104,6 @@ INSERT INTO StudentCourses VALUES
 ( 1, "COMP353", "CC", 2, "A+" ),
 ( 1, "COMP248", "AA", 1, "A" ),
 ( 2, "COMP353", "CC", 2, "B" ),
+( 2, "COMP233", "CA", 1, "C-" ),
 ( 3, "COMP353", "CC", 2, "A+" ),
 ( 4, "MATH204", "BB", 2, "C" );
