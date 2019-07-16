@@ -25,7 +25,9 @@ INSERT INTO Program VALUES
 ( 6, 5, "Mathematics", "Undergraduate", 90.0 ),
 ( 7, 1, "General Computer Science", "Undergraduate", 90.0 ),
 ( 9, 3, "Building Engineering", "Undergraduate", 90.0),
-( 10, 4, "Civil Engineering", "Undergraduate", 90.0 );
+( 10, 4, "Civil Engineering", "Undergraduate", 90.0 ),
+( 11, 1, "Computer Science", "Graduate", 44.0 ),
+( 12, 5, "Mathematics", "Graduate", 44.0 );
 
 INSERT INTO Course VALUES
 -- courseID, courseName, departmentID, programID, credits, prerequisite.
@@ -131,8 +133,8 @@ INSERT INTO Student VALUES
 
 INSERT INTO StudentProgram VALUES
 -- studentID, programID.
-( 1, 3 ),
 ( 1, 2 ),
+( 1, 3 ),
 ( 2, 1 ),
 ( 2, 2 ),
 ( 2, 3 ),
@@ -152,11 +154,14 @@ INSERT INTO StudentCourses VALUES
 INSERT INTO Advisor VALUES
 -- advisorID, firstName, lastName
 ( 1, "Katherine", "Matthews-Riel" ),
-( 2, "Vicky", "Tow" );
+( 2, "Vicky", "Tow" ),
+( 3, "Magik", "Mike" );
 
 INSERT INTO StudentAdvisor VALUES
--- studentID, idvisorID, programID
-( 1, 1, 1 );
+-- studentID, advisorID, programID
+( 1, 1, 2 ),
+( 5, 2, 11 ),
+( 6, 3, 12 );
 
 INSERT INTO TeachingAssistant VALUES
 -- teachingAssistantID, studentID, firstName, lastName, dateOfBirth, gpa
