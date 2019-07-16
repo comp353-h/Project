@@ -172,12 +172,14 @@ DROP TABLE IF EXISTS TeachingAssistantRoles;
 CREATE TABLE TeachingAssistantRoles (
     courseID VARCHAR(8),
     sectionID VARCHAR(4),
+    termID INT NOT NULL,
     teachingAssistantID INT NOT NULL,
 	room INT NOT NULL,
 	typeofrole ENUM ('tutorial','lab','marker'),
     hours TIME NOT NULL,
 	FOREIGN KEY (teachingAssistantID) REFERENCES TeachingAssistant (teachingAssistantID),
-	FOREIGN KEY (courseID,sectionID) REFERENCES Section (courseID,sectionID)
+	FOREIGN KEY (courseID,sectionID) REFERENCES Section (courseID,sectionID),
+	FOREIGN KEY (termID) REFERENCES Section (termID)
     -- add hours contraints 
 )  ENGINE=INNODB; 
 
