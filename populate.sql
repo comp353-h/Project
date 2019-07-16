@@ -52,9 +52,17 @@ INSERT INTO Instructor VALUES
 ( 2, "Aiman", "Hannah" );
 
 INSERT INTO Class VALUES
--- room, building
-( 405, "H" ),
-( 535, "H" );
+-- room, building, capacity
+( 405, "H", 70 ),
+( 407, "H", 70 ),
+( 409, "H", 70 ),
+( 411, "H", 70 ),
+( 435, "H", 120 ),
+( 535, "H", 120  ),
+( 903, "H", 40 ),
+( 907, "H", 40 ),
+( 1120, "JM", 90 ),
+( 1123, "JM", 90 );
 
 INSERT INTO Term VALUES
 -- termID, termName, termYear
