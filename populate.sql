@@ -131,7 +131,27 @@ INSERT INTO Student VALUES
 ( 3, "Mike", "Johnson", NULL, "mike.johnson@gmail.com", '1995-03-17', "Undergraduate", 2.30 ),
 ( 4, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 ),
 ( 5, "Salomon", "Kane", NULL, "salomon.kane@gmail.com", '1979-09-09', "Graduate", 3.76 ),
-( 6, "Stephan", "Stephanson", NULL, "stephan.stephanson@gmail.com", '1980-01-01', "Graduate", 3.25 );
+( 6, "Stephan", "Stephanson", NULL, "stephan.stephanson@gmail.com", '1980-01-01', "Graduate", 3.25 ),
+( 7, "Marcus", "Aurelius", NULL, "marcus.aurelius@gmail.com", '1956-12-27', "Graduate", 3.59 ),
+( 8, "Ada", "Lovelace", NULL, "ada.lovelace@gmail.com", '1815-12-10', "Graduate", 4.30 ),
+( 9, "Charles", "Babage", NULL, "charles.babage@gmail.com", '1791-12-26', "Graduate", 4.23 ),
+( 10, "Alonzo", "Church", NULL, "alonzo.church@gmail.com", '1903-06-14', "Graduate", 3.90 ),
+( 11, "Marcus", "Aurelius", NULL, "marcus.aurelius@gmail.com", '1956-12-27', "Graduate", 3.59 ),
+( 12, "Ada", "Lovelace", NULL, "ada.lovelace@gmail.com", '1815-12-10', "Graduate", 4.30 ),
+( 13, "Charles", "Babage", NULL, "charles.babage@gmail.com", '1791-12-26', "Graduate", 4.23 ),
+( 14, "Alonzo", "Church", NULL, "alonzo.church@gmail.com", '1903-06-14', "Graduate", 3.90 ),
+( 15, "Marcus", "Aurelius", NULL, "marcus.aurelius@gmail.com", '1956-12-27', "Graduate", 3.59 ),
+( 16, "Ada", "Lovelace", NULL, "ada.lovelace@gmail.com", '1815-12-10', "Graduate", 4.30 ),
+( 17, "Charles", "Babage", NULL, "charles.babage@gmail.com", '1791-12-26', "Graduate", 4.23 ),
+( 18, "Alonzo", "Church", NULL, "alonzo.church@gmail.com", '1903-06-14', "Graduate", 3.90 ),
+( 19, "Marcus", "Aurelius", NULL, "marcus.aurelius@gmail.com", '1956-12-27', "Graduate", 3.59 ),
+( 20, "Ada", "Lovelace", NULL, "ada.lovelace@gmail.com", '1815-12-10', "Graduate", 4.30 ),
+( 21, "Charles", "Babage", NULL, "charles.babage@gmail.com", '1791-12-26', "Graduate", 4.23 ),
+( 22, "Alonzo", "Church", NULL, "alonzo.church@gmail.com", '1903-06-14', "Graduate", 3.90 ),
+( 23, "Marcus", "Aurelius", NULL, "marcus.aurelius@gmail.com", '1956-12-27', "Graduate", 3.59 ),
+( 24, "Ada", "Lovelace", NULL, "ada.lovelace@gmail.com", '1815-12-10', "Graduate", 4.30 ),
+( 25, "Charles", "Babage", NULL, "charles.babage@gmail.com", '1791-12-26', "Graduate", 4.23 ),
+( 26, "Alonzo", "Church", NULL, "alonzo.church@gmail.com", '1903-06-14', "Graduate", 3.90 );
 
 INSERT INTO StudentProgram VALUES
 -- studentID, programID.
@@ -183,4 +203,24 @@ INSERT INTO Supervisor VALUES
 
 INSERT INTO StudentSupervisor VALUES
 -- studentID, supervisorID, programID
-( 5, 1, 11 );
+( 5, 1, 11 ),
+( 7, 1, 11 ),
+( 8, 1, 11 ),
+( 9, 1, 11 ),
+( 10, 1, 11 ),
+( 11, 1, 11 ),
+( 12, 1, 11 ),
+( 13, 1, 11 ),
+( 14, 1, 11 ),
+( 15, 1, 11 ),
+( 16, 1, 11 ),
+( 17, 1, 11 ),
+( 18, 1, 11 ),
+( 19, 1, 11 ),
+( 20, 1, 11 ),
+( 21, 1, 11 ),
+( 22, 1, 11 ),
+( 23, 1, 11 ),
+( 24, 1, 11 ),
+( 25, 1, 11 ),
+( 26, 1, 11 );
