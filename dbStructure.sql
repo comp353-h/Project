@@ -57,6 +57,7 @@ CREATE TABLE Instructor (
 CREATE TABLE Class (
     room INT NOT NULL,
     building VARCHAR(2),
+    capacity INT NOT NULL,
     PRIMARY KEY (room , building)
 )  ENGINE=INNODB;
 
