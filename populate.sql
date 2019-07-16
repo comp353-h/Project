@@ -55,7 +55,7 @@ INSERT INTO Instructor VALUES
 ( 4, "Gina", "Cody" ),
 ( 5, "Gosta", "Grahne" ),
 ( 6, "Carlos", "Santana" ),
-( 7, "David", "Probst" )
+( 7, "David", "Probst" ),
 ( 8, "Abbas", "JAVADTALAB" ),
 ( 9, "Bruno", "Grenier" ),
 ( 10, "Tom", "Cruise" );
