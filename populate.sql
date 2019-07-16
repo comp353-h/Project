@@ -51,7 +51,14 @@ INSERT INTO Instructor VALUES
 -- instructorID, firstName, lastName
 ( 1, "Khaleb", "Jababo" ),
 ( 2, "Aiman", "Hannah" ),
-( 3, "Donald", "Trump" );
+( 3, "Donald", "Trump" ),
+( 4, "Gina", "Cody" ),
+( 5, "Gosta", "Grahne" ),
+( 6, "Carlos", "Santana" ),
+( 7, "David", "Probst" )
+( 8, "Abbas", "JAVADTALAB" ),
+( 9, "Bruno", "Grenier" ),
+( 10, "Tom", "Cruise" );
 
 INSERT INTO Class VALUES
 -- room, building, capacity
@@ -74,14 +81,21 @@ INSERT INTO Term VALUES
 ( 4, "FALL", 2018 ),
 ( 5, "WINTER", 2019 ),
 ( 6, "SUMMER", 2019 ),
-( 7, "FALL", 2019 );
+( 7, "FALL", 2019 )
+( 8, "WINTER", 2020 ),
+( 9, "SUMMER", 2020 ),
+( 10, "FALL", 2020 );
 
 INSERT INTO Section VALUES
 -- sectionID, courseID, termID, room, startat, endat.
+( "WA", "COMP352", 1, 435, "H", "14:30:00", "15:45:00" ),
+( "HC", "MATH203", 1, 405, "H", "08:45:00", "10:00:00" ),
+( "GD", "CIVI212", 1, 1120, "JM", "15:30:00", "16:45:00" ),
+( "RC", "BCEE231", 1, 907, "H", "11:00:00", "12:15:00" ),
+( "BB", "SOEN228", 1, 535, "H", "17:45:00", "20:15:00" ),
 ( "BA", "COMP352", 4, 1120, "JM", "09:00:00", "10:15:00" ),
 ( "DC", "COMP352", 4, 411, "H", "12:45:00", "14:00:00" ),
 ( "AA", "COMP352", 3, 907, "H", "14:30:00", "15:45:00" ),
-( "WW", "COMP352", 1, 435, "H", "14:30:00", "15:45:00" ),
 ( "AA", "COMP248", 6, 405, "H", "14:00:00", "15:15:00" ),
 ( "CA", "COMP233", 6, 409, "H", "09:00:00", "10:15:00" ),
 ( "RR", "COMP232", 6, 407, "H", "14:45:00", "17:30:00" ),
@@ -92,6 +106,8 @@ INSERT INTO Section VALUES
 INSERT INTO InstructorHistory VALUES
 -- instructorID, termID, courseID, sectionID.
 ( 3, 1, "COMP352", "WW" ),
+( 8, 1, "CIVI212", "GD" ),
+( 6, 1, "MATH203", "HC" ),
 ( 2, 3, "COMP352", "AA" ),
 ( 3, 4, "COMP352", "BA" ),
 ( 1, 4, "COMP352", "DC" ),
@@ -104,7 +120,8 @@ INSERT INTO Student VALUES
 ( 1, "John", "Wick", NULL, "john.wick@gmail.com", '1975-05-17', "Undergraduate", 4.30 ),
 ( 2, "John", "Smith", NULL, "john.smith@gmail.com", '1998-09-02', "Undergraduate", 3.49 ),
 ( 3, "Mike", "Johnson", NULL, "mike.johnson@gmail.com", '1995-03-17', "Undergraduate", 2.30 ),
-( 4, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 );
+( 4, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 ),
+( 5, "Salomon", "Kane", NULL, "salomon.kane@gmail.com", '1979-09-09', "Graduate", 3.76 );
 
 INSERT INTO StudentProgram VALUES
 -- studentID, programID.
@@ -125,3 +142,16 @@ INSERT INTO StudentCourses VALUES
 ( 3, "COMP233", "CA", 6, "F" ),
 ( 3, "COMP353", "CC", 2, "A+" ),
 ( 4, "MATH204", "BB", 2, "C" );
+
+INSERT INTO Advisor VALUES
+-- advisorID, firstName, lastName
+
+INSERT INTO StudentAdvisor VALUES
+-- studentID, advisorID, programID
+
+INSERT INTO TeachingAssistant VALUES
+-- teachingAssistantID, studentID, firstName, lastName, dateOfBirth, gpa
+( 1, 5, "Salomon", "Kane", '1979-09-09', 3.76 );
+
+INSERT INTO TeachingAssistantRoles VALUES
+( )
