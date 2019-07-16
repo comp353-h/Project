@@ -156,7 +156,7 @@ INSERT INTO Advisor VALUES
 
 INSERT INTO StudentAdvisor VALUES
 -- studentID, idvisorID, programID
-( 1, 1, 2 );
+( 1, 1, 1 );
 
 INSERT INTO TeachingAssistant VALUES
 -- teachingAssistantID, studentID, firstName, lastName, dateOfBirth, gpa
