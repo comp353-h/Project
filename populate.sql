@@ -90,6 +90,7 @@ INSERT INTO Section VALUES
 -- sectionID, courseID, termID, room, startat, endat.
 ( "WA", "COMP352", 1, 435, "H", "14:30:00", "15:45:00" ),
 ( "HC", "MATH203", 1, 405, "H", "08:45:00", "10:00:00" ),
+( "CR", "MATH205", 1, 407, "H", "12:45:00", "14:00:00" ),
 ( "GD", "CIVI212", 1, 1120, "JM", "15:30:00", "16:45:00" ),
 ( "RC", "BCEE231", 1, 907, "H", "11:00:00", "12:15:00" ),
 ( "BB", "SOEN228", 1, 535, "H", "17:45:00", "20:15:00" ),
@@ -109,6 +110,7 @@ INSERT INTO InstructorHistory VALUES
 ( 3, 1, "COMP352", "WA" ),
 ( 8, 1, "CIVI212", "GD" ),
 ( 6, 1, "MATH203", "HC" ),
+( 10, 1, "MATH205", "CR" ),
 ( 2, 3, "COMP352", "AA" ),
 ( 3, 4, "COMP352", "BA" ),
 ( 1, 4, "COMP352", "DC" ),
@@ -123,7 +125,8 @@ INSERT INTO Student VALUES
 ( 2, "John", "Smith", NULL, "john.smith@gmail.com", '1998-09-02', "Undergraduate", 3.49 ),
 ( 3, "Mike", "Johnson", NULL, "mike.johnson@gmail.com", '1995-03-17', "Undergraduate", 2.30 ),
 ( 4, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 ),
-( 5, "Salomon", "Kane", NULL, "salomon.kane@gmail.com", '1979-09-09', "Graduate", 3.76 );
+( 5, "Salomon", "Kane", NULL, "salomon.kane@gmail.com", '1979-09-09', "Graduate", 3.76 )
+( 6, "Stephan", "Stephanson", NULL, "stephan.stephanson@gmail.com", '1980-01-01', "Graduate", 3.25 );
 
 INSERT INTO StudentProgram VALUES
 -- studentID, programID.
@@ -147,7 +150,11 @@ INSERT INTO StudentCourses VALUES
 
 INSERT INTO TeachingAssistant VALUES
 -- teachingAssistantID, studentID, firstName, lastName, dateOfBirth, gpa
-( 1, 5, "Salomon", "Kane", '1979-09-09', 3.76 );
+( 1, 5, "Salomon", "Kane", '1979-09-09', 3.76 ),
+( 2, 6, "Stephan", "Stephanson", '1980-01-01', 3.25 );
 
 INSERT INTO TeachingAssistantRoles VALUES
-( "COMP352", "WA", 1, 1, 435, "tutorial", 100 );
+-- courseID, sectionID, termID, teachingAssistantID, room, typeofrole, hours
+( "COMP352", "WA", 1, 1, 435, "tutorial", 100 ),
+( "MATH203", "HC", 1, 2, 405, "tutorial", 100 ),
+( "MATH205", "CR", 1, 2, 407, "tutorial", 100 );
