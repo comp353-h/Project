@@ -38,24 +38,6 @@ WHERE
 GROUP BY studentID) AS T
 WHERE NumberOfPrograms > 1; 
     
-SELECT 
-	s.studentID,
-    s.firstName,
-    s.lastName,
-    COUNT(sp.studentID) AS NumberOfPrograms
-FROM
-    StudentProgram sp
-        JOIN
-    Student s ON (s.studentID = sp.studentID)
-        JOIN
-    Program p ON (sp.programID = p.programID)
-        JOIN
-    Department d ON (p.departmentID = d.departmentID)
-WHERE
-    d.departmentID = 1
-GROUP BY studentID;
-
-
 
 -- Q3
 /*Find the name of all the instructors who taught Comp 352 in the fall term
@@ -134,12 +116,6 @@ FROM
 ;
 			   
                
--- Q8
-/*Find the details of all the courses offered by the Computer Science
-department for the summer term of 2019. Details include Course name,
-section, room location, start and end time, professor teaching the course,
-max class capacity and number of enrolled students.*/ 
-
 -- Q8
 /*Find the details of all the courses offered by the Computer Science
 department for the summer term of 2019. Details include Course name,
