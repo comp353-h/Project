@@ -73,12 +73,13 @@ CREATE TABLE Section (
     courseID VARCHAR(8) NOT NULL,
     termID INT NOT NULL,
     room INT NOT NULL,
+    building VARCHAR(2),
     startat TIME NOT NULL ,
     endat TIME NOT NULL,
 	PRIMARY  KEY (courseID, sectionID),
 	FOREIGN KEY (courseID) REFERENCES Course (courseID),
 	FOREIGN KEY (termID) REFERENCES Term (termID),
-    FOREIGN KEY (room) REFERENCES Class (room),
+    FOREIGN KEY (room, building) REFERENCES Class (room, building),
     UNIQUE KEY (sectionID , courseID , startat , endat)
 )  ENGINE=INNODB;
 
