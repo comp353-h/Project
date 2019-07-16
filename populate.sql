@@ -100,6 +100,7 @@ INSERT INTO Section VALUES
 ( "AA", "COMP248", 6, 405, "H", "14:00:00", "15:15:00" ),
 ( "CA", "COMP233", 6, 409, "H", "09:00:00", "10:15:00" ),
 ( "RR", "COMP232", 6, 407, "H", "14:45:00", "17:30:00" ),
+( "BR", "COMP353", 6, 907, "H", "14:00:00", "15:15:00" ),
 ( "BB", "COMP248", 7, 407, "H", "14:00:00", "15:15:00" ),
 ( "TA", "COMP352", 5, 405, "H", "14:00:00", "15:15:00" ),
 ( "BB", "MATH204", 2, 535, "H", "09:00:00", "10:15:00" ),
@@ -157,4 +158,7 @@ INSERT INTO TeachingAssistantRoles VALUES
 -- courseID, sectionID, termID, teachingAssistantID, room, typeofrole, hours
 ( "COMP352", "WA", 1, 1, 435, "tutorial", 100 ),
 ( "MATH203", "HC", 1, 2, 405, "tutorial", 100 ),
-( "MATH205", "CR", 1, 2, 407, "tutorial", 100 );
+( "MATH205", "CR", 1, 2, 407, "tutorial", 100 ),
+( "COMP353", "BR", 6, 1, 907, "lab", 100 );
+
+-- 353 summer 2019.
