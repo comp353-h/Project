@@ -1,4 +1,6 @@
 -- Q1 
+/*Find ID, first name and last name of all the students who have taken
+Database course and received an A or A+ grade for the course.*/
 
 SELECT 
     s.firstName, s.lastName, c.courseName, sc.grade
@@ -12,9 +14,10 @@ WHERE
     c.courseID = 'COMP353'
         AND (sc.grade = 'A+' OR sc.grade = 'A');
 
-
-
 -- Q2
+/*Find ID, first name, last name and number of programs of students who
+are enrolled in at least two different programs in the Computer Science
+department.*/
 
 SELECT 
     s.firstName,
@@ -32,10 +35,10 @@ WHERE
     d.departmentID = 1;
 
 -- Q3
+/*Find the name of all the instructors who taught Comp 352 in the fall term
+of 2018 but have never taught the same course before.*/
 
-SELECT 
-    *
-FROM
+SELECT * FROM
     InstructorHistory ih
         JOIN
     Instructor i ON (ih.instructorID = i.instructorID)
@@ -45,16 +48,21 @@ FROM
     Section s ON (s.sectionID = ih.sectionID)
         JOIN
     Course c ON (c.courseID =  s.courseID)
-	WHERE i.firstName = (SELECT * FROM table1 WHERE ...))
-
-    
+	WHERE i.firstName = (SELECT * FROM table1 WHERE ...)
     -- c.courseID = 'COMP352' AND  
 ;
 
 -- Q4 
+/*Find the name of all the programs offered by the Computer Science
+department along with the number of credits required for completion in
+each program.*/
+
 SELECT p.name, p.credits FROM Program p where departmentID = 1;
 
 -- Q5 
+/*Find the name and IDs of all the undergraduate students who do not have
+an advisor.*/
+
 SELECT 
     studentID, firstName, lastName
 FROM
@@ -67,9 +75,9 @@ WHERE
 			     
 			     
 -- Q6 			     
--- Find the ID, name and assignment mandate of all the graduate students
--- who are assigned as teaching assistants to Comp 353 for the summer term
--- of 2019
+/*Find the ID, name and assignment mandate of all the graduate students
+who are assigned as teaching assistants to Comp 353 for the summer term
+of 2019.*/
 
 SELECT 
     *
@@ -86,8 +94,8 @@ WHERE
 ;
 			     
 -- Q7			     
--- Find the name of all the supervisors in the Computer Science department
--- who have supervised at least 20 students.
+/*Find the name of all the supervisors in the Computer Science department
+who have supervised at least 20 students.*/
 
 SELECT 
     *
@@ -100,11 +108,17 @@ FROM
     group by s.supervisorID
     HAVING COUNT(s.supervisorID > 19)
 ;
-			     
+			   
+               
+-- Q8
+/*Find the details of all the courses offered by the Computer Science
+department for the summer term of 2019. Details include Course name,
+section, room location, start and end time, professor teaching the course,
+max class capacity and number of enrolled students.*/ 
 			  
 -- Q9
--- For each department, find the total number of courses offered by the
--- department.
+/*For each department, find the total number of courses offered by the
+department.*/
 
 SELECT 
     d.name, COUNT(c.courseID) AS NumberOfCourseOffered
@@ -113,4 +127,8 @@ FROM
         JOIN
     Department d ON (d.departmentID = c.departmentID)
 GROUP BY d.departmentID;
+
+-- Q10
+/*For each program, find the total number of students enrolled into the
+program.*/
 
