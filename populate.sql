@@ -91,4 +91,5 @@ INSERT INTO StudentCourses VALUES
 ( 1, "COMP353", "CC", 2, "A+" ),
 ( 1, "COMP248", "AA", 1, "A" ),
 ( 2, "COMP353", "CC", 2, "B" ),
-( 3, "COMP353", "CC", 2, "C+" );
+( 3, "COMP353", "CC", 2, "A+" ),
+( 4, "COMP248", "BB", 2, "C" );
