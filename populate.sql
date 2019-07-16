@@ -100,6 +100,7 @@ INSERT INTO Section VALUES
 ( "CA", "COMP233", 6, 409, "H", "09:00:00", "10:15:00" ),
 ( "RR", "COMP232", 6, 407, "H", "14:45:00", "17:30:00" ),
 ( "BB", "COMP248", 7, 407, "H", "14:00:00", "15:15:00" ),
+( "TA", "COMP352", 5, 405, "H", "14:00:00", "15:15:00" ),
 ( "BB", "MATH204", 2, 535, "H", "09:00:00", "10:15:00" ),
 ( "CC", "COMP353", 2, 1123, "JM", "14:45:00", "17:30:00" );
 
@@ -111,6 +112,7 @@ INSERT INTO InstructorHistory VALUES
 ( 2, 3, "COMP352", "AA" ),
 ( 3, 4, "COMP352", "BA" ),
 ( 1, 4, "COMP352", "DC" ),
+( 8, 5, "COMP352", "TA" ),
 ( 1, 6, "COMP248", "AA" ),
 ( 2, 6, "COMP233", "CA" ),
 ( 2, 7, "COMP248", "BB" );
@@ -143,15 +145,9 @@ INSERT INTO StudentCourses VALUES
 ( 3, "COMP353", "CC", 2, "A+" ),
 ( 4, "MATH204", "BB", 2, "C" );
 
-INSERT INTO Advisor VALUES
--- advisorID, firstName, lastName
-
-INSERT INTO StudentAdvisor VALUES
--- studentID, advisorID, programID
-
 INSERT INTO TeachingAssistant VALUES
 -- teachingAssistantID, studentID, firstName, lastName, dateOfBirth, gpa
 ( 1, 5, "Salomon", "Kane", '1979-09-09', 3.76 );
 
 INSERT INTO TeachingAssistantRoles VALUES
-( )
+( "COMP352", "WW", 1, 1, 435, "tutorial", 100 );
