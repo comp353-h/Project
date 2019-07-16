@@ -47,18 +47,18 @@ INSERT INTO Course VALUES
 ( "SOEN228", "System Hardware", 1, 7, 3.00, "MATH204" );
 
 INSERT INTO Instructor VALUES
--- instructorID, firstName, lastName3
+-- instructorID, firstName, lastName
 ( 1, "Khaleb", "Jababo" )
 ( 2, "Aiman", "Hannah" );
 
 INSERT INTO Class VALUES
--- room, building3
+-- room, building
 ( 405, "H" ),
 ( 535, "H" );
 
 INSERT INTO Term VALUES
--- termID, termName, termYear3
-( 1, "SUMMER", 2019),
+-- termID, termName, termYear
+( 1, "SUMMER", 2019 ),
 ( 2, "FALL", 2019 );
 
 INSERT INTO Section VALUES
