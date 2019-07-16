@@ -164,17 +164,20 @@ CREATE TABLE TeachingAssistant (
     dateOfBirth DATE,
     gpa DECIMAL(3 , 2 ),
     PRIMARY KEY (teachingAssistantID),
-    FOREIGN KEY (studentID) REFERENCES Student(studentID)
+    FOREIGN KEY (studentID) REFERENCES Student(studentID),
+    CHECK (gpa >= 3.2)
 )  ENGINE=INNODB; 
 
+DROP TABLE IF EXISTS TeachingAssistantRoles;
 CREATE TABLE TeachingAssistantRoles (
+    courseID VARCHAR(8),
     sectionID VARCHAR(4),
     teachingAssistantID INT NOT NULL,
 	room INT NOT NULL,
 	typeofrole ENUM ('tutorial','lab','marker'),
     hours TIME NOT NULL,
 	FOREIGN KEY (teachingAssistantID) REFERENCES TeachingAssistant (teachingAssistantID),
-	FOREIGN KEY (sectionID) REFERENCES Section (sectionID)
+	FOREIGN KEY (courseID,sectionID) REFERENCES Section (courseID,sectionID)
     -- add hours contraints 
 )  ENGINE=INNODB; 
 

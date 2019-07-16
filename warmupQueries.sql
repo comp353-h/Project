@@ -1,4 +1,4 @@
--- Q1 ( VERIFIED ) 
+-- Q1 
 /*Find ID, first name and last name of all the students who have taken
 Database course and received an A or A+ grade for the course.*/
 
@@ -14,35 +14,54 @@ WHERE
     c.courseID = 'COMP353'
         AND (sc.grade = 'A+' OR sc.grade = 'A');
 
--- Q2 ( VERIFIED ) 
+-- Q2
 /*Find ID, first name, last name and number of programs of students who
 are enrolled in at least two different programs in the Computer Science
 department.*/
 
 SELECT studentID, firstName, lastName, NumberOfPrograms	
 FROM (SELECT 
-		s.studentID,
-		s.firstName,
-		s.lastName,
-		COUNT(sp.studentID) AS NumberOfPrograms
-	FROM
-		StudentProgram sp
-			JOIN
-		Student s ON (s.studentID = sp.studentID)
-			JOIN
-		Program p ON (sp.programID = p.programID)
-			JOIN
-		Department d ON (p.departmentID = d.departmentID)
-	WHERE
-		d.departmentID = 1
-	GROUP BY studentID) AS T
+	s.studentID,
+    s.firstName,
+    s.lastName,
+    COUNT(sp.studentID) AS NumberOfPrograms
+FROM
+    StudentProgram sp
+        JOIN
+    Student s ON (s.studentID = sp.studentID)
+        JOIN
+    Program p ON (sp.programID = p.programID)
+        JOIN
+    Department d ON (p.departmentID = d.departmentID)
+WHERE
+    d.departmentID = 1
+GROUP BY studentID) AS T
 WHERE NumberOfPrograms > 1; 
+    
+SELECT 
+	s.studentID,
+    s.firstName,
+    s.lastName,
+    COUNT(sp.studentID) AS NumberOfPrograms
+FROM
+    StudentProgram sp
+        JOIN
+    Student s ON (s.studentID = sp.studentID)
+        JOIN
+    Program p ON (sp.programID = p.programID)
+        JOIN
+    Department d ON (p.departmentID = d.departmentID)
+WHERE
+    d.departmentID = 1
+GROUP BY studentID;
+
+
 
 -- Q3
 /*Find the name of all the instructors who taught Comp 352 in the fall term
 of 2018 but have never taught the same course before.*/
 
-SELECT * FROM
+/*SELECT * FROM
     InstructorHistory ih
         JOIN
     Instructor i ON (ih.instructorID = i.instructorID)
@@ -54,8 +73,8 @@ SELECT * FROM
     Course c ON (c.courseID =  s.courseID)
 	WHERE i.firstName = (SELECT * FROM table1 WHERE ...)
     -- c.courseID = 'COMP352' AND  
-;
-    
+; */
+
 -- Q4 
 /*Find the name of all the programs offered by the Computer Science
 department along with the number of credits required for completion in
@@ -68,14 +87,16 @@ SELECT p.name, p.credits FROM Program p where departmentID = 1;
 an advisor.*/
 
 SELECT 
-    studentID, firstName, lastName
+    studentID, firstName, lastName 
 FROM
     Student
 WHERE
-    studentID NOT IN (SELECT 
+    (studentType = 'Undergraduate')
+        AND studentID NOT IN (SELECT 
             studentID
         FROM
             StudentAdvisor);
+			     
 			     
 -- Q6 			     
 /*Find the ID, name and assignment mandate of all the graduate students
@@ -112,6 +133,7 @@ FROM
     HAVING COUNT(s.supervisorID > 19)
 ;
 			   
+               
 -- Q8
 /*Find the details of all the courses offered by the Computer Science
 department for the summer term of 2019. Details include Course name,
