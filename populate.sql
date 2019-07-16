@@ -29,7 +29,7 @@ INSERT INTO Program VALUES
 
 INSERT INTO Course VALUES
 -- courseID, courseName, programID, departmentID, credits, prerequisite.
-( "MATH201", "ELementary Functions", 5, 6,	3.00, NULL ),
+( "MATH201", "Elementary Functions", 5, 6,	3.00, NULL ),
 ( "MATH202", "College Algebra", 5, 6, 3.00, "MATH201" ),
 ( "MATH203", "Differential & Integral Calculus I", 5, 6, 3.00, NULL ),
 ( "MATH204", "Vectors and Matrices", 5, 6, 3.00, NULL ),

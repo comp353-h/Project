@@ -1,11 +1,30 @@
-DROP TABLE IF EXISTS Department;
+DROP TABLE IF EXISTS `TeachingAssistantRoles`;
+DROP TABLE IF EXISTS `StudentEnrolledCourses`; 
+DROP TABLE IF EXISTS `InstructorSection`;
+DROP TABLE IF EXISTS `StudentAdvisor`;
+DROP TABLE IF EXISTS `Advisor`;
+DROP TABLE IF EXISTS `StudentCourses`;
+DROP TABLE IF EXISTS `StudentProgram`;
+DROP TABLE IF EXISTS `StudentSupervisor`;
+DROP TABLE IF EXISTS `InstructorHistory`;
+DROP TABLE IF EXISTS `Section`;
+DROP TABLE IF EXISTS `Course`;
+DROP TABLE IF EXISTS `Program`;
+DROP TABLE IF EXISTS `Department`;
+DROP TABLE IF EXISTS `Instructor`;
+DROP TABLE IF EXISTS `Term`;
+DROP TABLE IF EXISTS `ResearchFunding`;
+DROP TABLE IF EXISTS `Supervisor`;
+DROP TABLE IF EXISTS `TeachingAssistant`;
+DROP TABLE IF EXISTS `Student`;
+DROP TABLE IF EXISTS `Class`;
+
 CREATE TABLE Department (
     departmentID INT AUTO_INCREMENT NOT NULL,
     name CHAR(60) NOT NULL,
     PRIMARY KEY (departmentID)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS Program;
 CREATE TABLE Program (
     programID INT AUTO_INCREMENT NOT NULL,
     departmentID INT NOT NULL,
@@ -16,10 +35,9 @@ CREATE TABLE Program (
     FOREIGN KEY (departmentID) REFERENCES Department (departmentID)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS Course;
 CREATE TABLE Course (
     courseID VARCHAR(8) NOT NULL,
-    courseName VARCHAR(25) NOT NULL,
+    courseName VARCHAR(100) NOT NULL,
     departmentID INT NOT NULL,
     programID INT NOT NULL,
     credits DECIMAL(4 , 1),
@@ -29,7 +47,6 @@ CREATE TABLE Course (
     -- FOREIGN KEY (departmentID) REFERENCES Program (departmentID)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS Instructor;
 CREATE TABLE Instructor (
     instructorID INT AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(50) NOT NULL,
@@ -37,15 +54,12 @@ CREATE TABLE Instructor (
     PRIMARY KEY (instructorID)
 )  ENGINE=INNODB;
 
-
-DROP TABLE IF EXISTS Class;
 CREATE TABLE Class (
     room INT NOT NULL,
     building VARCHAR(2),
     PRIMARY KEY (room , building)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS Term;
 CREATE TABLE Term (
     termID INT NOT NULL ,
     termName ENUM ('FALL','WINTER','SUMMER') NOT NULL,
@@ -53,8 +67,6 @@ CREATE TABLE Term (
     PRIMARY KEY (termID)
 )  ENGINE=INNODB;
 
-
-DROP TABLE IF EXISTS Section;
 CREATE TABLE Section (
     sectionID VARCHAR(4),
     courseID VARCHAR(8) NOT NULL,
@@ -69,7 +81,6 @@ CREATE TABLE Section (
     UNIQUE KEY (sectionID , courseID , startat , endat)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS InstructorHistory;
 CREATE TABLE InstructorHistory (
     instructorID INT NOT NULL,
     termID INT NOT NULL,
@@ -81,7 +92,6 @@ CREATE TABLE InstructorHistory (
 -- 	FOREIGN KEY (courseID) REFERENCES Course (courseID)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS InstructorSection;
 CREATE TABLE InstructorSection (
     instructorID INT NOT NULL,
     courseID VARCHAR(8) NOT NULL,
@@ -97,8 +107,6 @@ CREATE TABLE InstructorSection (
 -- 	CONSTRAINT CHK_EndTime_After_StartTime CHECK (endat > startat)
 )  ENGINE=INNODB;
 
-
-DROP TABLE IF EXISTS Student;
 CREATE TABLE Student (
     studentID INT AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(50) NOT NULL,
@@ -111,8 +119,6 @@ CREATE TABLE Student (
     PRIMARY KEY (studentID)
 )  ENGINE=INNODB;
 
-
-DROP TABLE IF EXISTS StudentProgram;
 CREATE TABLE StudentProgram (
     studentID INT NOT NULL,
     programID INT NOT NULL,
@@ -121,8 +127,6 @@ CREATE TABLE StudentProgram (
     UNIQUE KEY (studentID , programID)
 )  ENGINE=INNODB;
 
-
-DROP TABLE IF EXISTS StudentCourses;
 CREATE TABLE StudentCourses (
     studentID INT NOT NULL,
     courseID VARCHAR(8) NOT NULL,
@@ -133,7 +137,6 @@ CREATE TABLE StudentCourses (
     FOREIGN KEY (courseID, sectionID) REFERENCES Section (courseID, sectionID)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS Advisor;
 CREATE TABLE Advisor (
     advisorID INT AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(50) NOT NULL,
@@ -141,7 +144,6 @@ CREATE TABLE Advisor (
     PRIMARY KEY (advisorID)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS StudentAdvisor;
 CREATE TABLE StudentAdvisor (
     studentID INT NOT NULL,
     advisorID INT NOT NULL,
@@ -152,7 +154,6 @@ CREATE TABLE StudentAdvisor (
     UNIQUE KEY (studentID , programID)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS TeachingAssistant;
 CREATE TABLE TeachingAssistant (
     teachingAssistantID INT AUTO_INCREMENT NOT NULL,
     studentID INT NOT NULL,
@@ -164,8 +165,6 @@ CREATE TABLE TeachingAssistant (
     FOREIGN KEY (studentID) REFERENCES Student(studentID)
 )  ENGINE=INNODB; 
 
-
-DROP TABLE IF EXISTS TeachingAssistantRoles;
 CREATE TABLE TeachingAssistantRoles (
     sectionID VARCHAR(4),
     teachingAssistantID INT NOT NULL,
@@ -177,7 +176,6 @@ CREATE TABLE TeachingAssistantRoles (
     -- add hours contraints 
 )  ENGINE=INNODB; 
 
-DROP TABLE IF EXISTS ResearchFunding;
 CREATE TABLE ResearchFunding (
     researchFundingID INT AUTO_INCREMENT NOT NULL,
     amount DECIMAL(9 , 2 ),
@@ -186,7 +184,6 @@ CREATE TABLE ResearchFunding (
     PRIMARY KEY (researchFundingID)
 )  ENGINE=INNODB;
 
-DROP TABLE IF EXISTS Supervisor;
 CREATE TABLE Supervisor (
     supervisorID INT AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(50) NOT NULL,
@@ -195,7 +192,6 @@ CREATE TABLE Supervisor (
     PRIMARY KEY (supervisorID)
 )  ENGINE=INNODB; 
 
-DROP TABLE IF EXISTS StudentSupervisor;
 CREATE TABLE StudentSupervisor (
     studentID INT NOT NULL,
     supervisorID INT NOT NULL,
