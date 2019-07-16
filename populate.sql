@@ -199,7 +199,8 @@ INSERT INTO TeachingAssistantRoles VALUES
 
 INSERT INTO Supervisor VALUES
 -- supervisorID, firstName, lastName, fundingAvailable
-( 1, "Tony", "Stark", true );
+( 1, "Tony", "Stark", true ),
+( 2, "Harald", "Hardrada", true);
 
 INSERT INTO StudentSupervisor VALUES
 -- studentID, supervisorID, programID
