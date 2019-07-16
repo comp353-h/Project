@@ -19,10 +19,12 @@ WHERE
 are enrolled in at least two different programs in the Computer Science
 department.*/
 
-SELECT 
+SELECT studentID, firstName, lastName, NumberOfPrograms	
+FROM (SELECT 
+	s.studentID,
     s.firstName,
     s.lastName,
-    COUNT(sp.studentID) AS NumberOfProgarms
+    COUNT(sp.studentID) AS NumberOfPrograms
 FROM
     StudentProgram sp
         JOIN
@@ -32,7 +34,28 @@ FROM
         JOIN
     Department d ON (p.departmentID = d.departmentID)
 WHERE
-    d.departmentID = 1;
+    d.departmentID = 1
+GROUP BY studentID) AS T
+WHERE NumberOfPrograms > 1; 
+    
+SELECT 
+	s.studentID,
+    s.firstName,
+    s.lastName,
+    COUNT(sp.studentID) AS NumberOfPrograms
+FROM
+    StudentProgram sp
+        JOIN
+    Student s ON (s.studentID = sp.studentID)
+        JOIN
+    Program p ON (sp.programID = p.programID)
+        JOIN
+    Department d ON (p.departmentID = d.departmentID)
+WHERE
+    d.departmentID = 1
+GROUP BY studentID;
+
+
 
 -- Q3
 /*Find the name of all the instructors who taught Comp 352 in the fall term
