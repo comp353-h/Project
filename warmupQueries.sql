@@ -86,9 +86,9 @@ who are assigned as teaching assistants to Comp 353 for the summer term
 of 2019.*/
 
 SELECT 
-    *
+  ta.teachingAssistantID, firstName, lastName, typeofrole 
 FROM
-    TeachingAssistantRoles tar
+    TeachingAssistant ta, TeachingAssistantRoles tar
         JOIN
     Section s ON s.sectionID = tar.sectionID 
     JOIN
@@ -97,6 +97,8 @@ FROM
     Course c ON c.courseID = s.courseID
 WHERE
     c.courseID = 'COMP353' AND t.termName = 'SUMMER' AND t.termYear = 2019
+    AND
+    ta.teachingAssistantID = tar.teachingAssistantID
 ;
 			     
 -- Q7			     
