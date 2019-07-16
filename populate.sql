@@ -48,7 +48,7 @@ INSERT INTO Course VALUES
 
 INSERT INTO Instructor VALUES
 -- instructorID, firstName, lastName
-( 1, "Khaleb", "Jababo" )
+( 1, "Khaleb", "Jababo" ),
 ( 2, "Aiman", "Hannah" );
 
 INSERT INTO Class VALUES
