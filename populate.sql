@@ -65,6 +65,7 @@ INSERT INTO Section VALUES
 -- sectionID, courseID, termID, room, startat, endat.
 ( "AA", "COMP248", 1, 405, "14:00:00", "15:15:00" ),
 ( "BB", "COMP248", 2, 405, "14:00:00", "15:15:00" ),
+( "BB", "MATH204", 2, 535, "09:00:00", "10:15:00" ),
 ( "CC", "COMP353", 2, 535, "14:45:00", "17:30:00" );
 
 INSERT INTO InstructorHistory VALUES
@@ -85,7 +86,7 @@ INSERT INTO StudentProgram VALUES
 ( 1, 2 ),
 ( 2, 1 ),
 ( 3, 3 ),
-( 4, 5 );
+( 4, 6 );
 
 INSERT INTO StudentCourses VALUES
 -- studentID, courseID,	grade, termID, sectionID.
@@ -93,4 +94,4 @@ INSERT INTO StudentCourses VALUES
 ( 1, "COMP248", "AA", 1, "A" ),
 ( 2, "COMP353", "CC", 2, "B" ),
 ( 3, "COMP353", "CC", 2, "A+" ),
-( 4, "COMP248", "BB", 2, "C" );
+( 4, "MATH204", "BB", 2, "C" );
