@@ -76,13 +76,15 @@ INSERT INTO Student VALUES
 -- studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa.
 ( 1, "John", "Wick", NULL, "john.wick@gmail.com", '1975-05-17', "Undergraduate", 4.30 ),
 ( 2, "John", "Smith", NULL, "john.smith@gmail.com", '1998-09-02', "Undergraduate", 3.49 ),
-( 3, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 );
+( 3, "Mike", "Johnson", NULL, "mike.johnson@gmail.com", '1995-03-17', "Undergraduate", 2.30 ),
+( 4, "Jane", "Doe", NULL, "jane.doe@gmail.com", '1995-03-29', "Undergraduate", 2.73 );
 
 INSERT INTO StudentProgram VALUES
 -- studentID, programID.
 ( 1, 3 ),
 ( 2, 1 ),
-( 3, 5 );
+( 3, 3 ),
+( 4, 5 );
 
 INSERT INTO StudentCourses VALUES
 -- studentID, courseID,	grade, termID, sectionID.
