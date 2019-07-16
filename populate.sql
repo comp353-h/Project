@@ -81,7 +81,7 @@ INSERT INTO Term VALUES
 ( 4, "FALL", 2018 ),
 ( 5, "WINTER", 2019 ),
 ( 6, "SUMMER", 2019 ),
-( 7, "FALL", 2019 )
+( 7, "FALL", 2019 ),
 ( 8, "WINTER", 2020 ),
 ( 9, "SUMMER", 2020 ),
 ( 10, "FALL", 2020 );
