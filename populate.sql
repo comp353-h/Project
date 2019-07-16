@@ -106,7 +106,7 @@ INSERT INTO Section VALUES
 
 INSERT INTO InstructorHistory VALUES
 -- instructorID, termID, courseID, sectionID.
-( 3, 1, "COMP352", "WW" ),
+( 3, 1, "COMP352", "WA" ),
 ( 8, 1, "CIVI212", "GD" ),
 ( 6, 1, "MATH203", "HC" ),
 ( 2, 3, "COMP352", "AA" ),
@@ -150,4 +150,4 @@ INSERT INTO TeachingAssistant VALUES
 ( 1, 5, "Salomon", "Kane", '1979-09-09', 3.76 );
 
 INSERT INTO TeachingAssistantRoles VALUES
-( "COMP352", "WW", 1, 1, 435, "tutorial", 100 );
+( "COMP352", "WA", 1, 1, 435, "tutorial", 100 );
