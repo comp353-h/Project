@@ -48,7 +48,8 @@ INSERT INTO Course VALUES
 
 INSERT INTO Instructor VALUES
 -- instructorID, firstName, lastName3
-( 1, "Khaleb", "Jababo" );
+( 1, "Khaleb", "Jababo" )
+( 2, "Aiman", "Hannah" );
 
 INSERT INTO Class VALUES
 -- room, building3
@@ -67,7 +68,8 @@ INSERT INTO Section VALUES
 
 INSERT INTO InstructorHistory VALUES
 -- instructorID, termID, courseID, sectionID.
-( 1, 1, "COMP248", "AA" ); 
+( 1, 1, "COMP248", "AA" ),
+( 2, 2, "COMP248", "BB" ); 
 
 INSERT INTO Student VALUES
 -- studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa.
