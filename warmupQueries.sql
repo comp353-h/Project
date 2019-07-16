@@ -132,3 +132,10 @@ GROUP BY d.departmentID;
 /*For each program, find the total number of students enrolled into the
 program.*/
 
+SELECT 
+    p.name AS 'Program Name', COUNT(sp.studentID) AS 'Students Enrolled'
+FROM
+    StudentProgram sp
+		JOIN
+	Program p ON (sp.programID = p.programID)
+GROUP BY p.name;
