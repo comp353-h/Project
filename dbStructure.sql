@@ -70,8 +70,8 @@ CREATE TABLE Term (
 
 CREATE TABLE Section (
     courseID VARCHAR(8) NOT NULL,
-    termID INT NOT NULL,
     sectionID VARCHAR(4),
+    termID INT NOT NULL,
     room INT NOT NULL,
     building VARCHAR(2),
     startat TIME NOT NULL ,
