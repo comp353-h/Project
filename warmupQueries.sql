@@ -181,8 +181,8 @@ max class capacity and number of enrolled students.*/
 SELECT 
    courseName,
    sectionID,
-   class.room,
-   building,
+   s.room,
+   s.building,
    startat,
    endat,
    capacity
