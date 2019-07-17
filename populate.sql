@@ -219,7 +219,15 @@ INSERT INTO StudentCourses VALUES
 ( 1, "COMP232", "CM", 2, "A-" ),
 ( 1, "COMP248", "CC", 2, "A" ),
 ( 1, "COMP249", "WA", 3, "A" ),
-( 1, "COMP353", "CM", 3, "A+" );
+( 1, "COMP353", "CM", 3, "A+" ),
+( 2, "MATH202", "MT", 1, "B" ),
+( 2, "MATH203", "HC", 1, "B+" ),
+( 2, "MATH204", "BB", 2, "A-" ),
+( 2, "MATH205", "CR", 2, "A" ),
+( 2, "COMP232", "CM", 2, "B-" ),
+( 2, "COMP248", "CC", 2, "B" ),
+( 2, "COMP249", "WA", 3, "B" ),
+( 2, "COMP353", "CM", 3, "B+" );
 
 INSERT INTO Advisor VALUES
 -- advisorID, firstName, lastName
@@ -280,7 +288,16 @@ INSERT INTO TeachingAssistantRoles VALUES
 
 INSERT INTO ResearchFunding VALUES
 -- researchFundingID, amount, researchDate, researchName
-( 1, 100000.0, "2019-01-01", "Science, Bitch!" );
+( 1, 100000.0, "2019-01-01", "Science, Bitch!" ),
+( 2, 250000,0, "2018-04-02", "Maths Research" ),
+( 3, 52000,0, "2018-08-05", "More Maths" ),
+( 4, 2250000,0, "2018-10-19", "Even More Maths" ),
+( 5, 1250000,0, "2018-04-02", "Maths Research" ),
+( 6, 950000,0, "2018-04-02", "Maths Research" ),
+( 7, 50000,0, "2018-04-02", "Maths Research" ),
+( 8, 250000,0, "2018-04-02", "Maths Research" ),
+( 9, 6250000,0, "2018-04-02", "Maths Research" ),
+( 10, 450000,0, "2018-04-02", "Maths Research" );
 
 INSERT INTO Supervisor VALUES
 -- supervisorID, firstName, lastName, fundingAvailable
