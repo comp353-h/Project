@@ -295,12 +295,12 @@ INSERT INTO TeachingAssistant VALUES
 
 INSERT INTO TeachingAssistantRoles VALUES
 -- courseID, sectionID, termID, teachingAssistantID, room, typeofrole, hours
-( "COMP352", "WA", 1, 1, 435, "tutorial", 100),
+( "COMP352", "WA", 1, 1, 435, "tutorial", 100 ),
 ( "MATH203", "HC", 1, 2, 405, "tutorial", 100 ),
 ( "MATH205", "CR", 1, 2, 407, "tutorial", 100 ),
 ( "COMP353", "BR", 6, 1, 907, "lab", 100 ),
 ( "COMP352", "WA", 2, 3, 435, "tutorial", 100 ),
-( "COMP352", "WA", 2, 4  435, "lab", 100 ),
+( "COMP352", "WA", 2, 4,  435, "lab", 100 ),
 ( "COMP248", "AA", 6, 8, 405, "tutorial", 100 ),
 ( "COMP248", "AA", 6, 9, 405, "lab", 100 ),
 ( "COMP232", "CA", 7, 10, 1120, "tutorial", 100 ),
