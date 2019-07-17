@@ -188,7 +188,7 @@ CREATE TABLE ResearchFunding (
     researchFundingID INT AUTO_INCREMENT NOT NULL,
     amount DECIMAL(9 , 2 ),
     researchDate DATE,
-    researchName VARCHAR(50) NOT NULL,
+    researchName VARCHAR(100) NOT NULL,
     PRIMARY KEY (researchFundingID)
 )  ENGINE=INNODB;
 

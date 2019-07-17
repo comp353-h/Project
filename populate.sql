@@ -289,15 +289,15 @@ INSERT INTO TeachingAssistantRoles VALUES
 INSERT INTO ResearchFunding VALUES
 -- researchFundingID, amount, researchDate, researchName
 ( 1, 100000.0, "2019-01-01", "Science, Bitch!" ),
-( 2, 250000,0, "2018-04-02", "Maths Research" ),
-( 3, 52000,0, "2018-08-05", "More Maths" ),
-( 4, 2250000,0, "2018-10-19", "Even More Maths" ),
-( 5, 1250000,0, "2018-04-02", "Maths Research" ),
-( 6, 950000,0, "2018-04-02", "Maths Research" ),
-( 7, 50000,0, "2018-04-02", "Maths Research" ),
-( 8, 250000,0, "2018-04-02", "Maths Research" ),
-( 9, 6250000,0, "2018-04-02", "Maths Research" ),
-( 10, 450000,0, "2018-04-02", "Maths Research" );
+( 2, 250000.0, "2018-04-02", "Maths Research" ),
+( 3, 52000.0, "2018-08-05", "More Maths" ),
+( 4, 2250000.0, "2018-10-19", "Even More Maths" ),
+( 5, 1250000.0, "2018-04-02", "Maths Research" ),
+( 6, 950000.0, "2018-04-02", "Maths Research" ),
+( 7, 50000.0, "2018-04-02", "Maths Research" ),
+( 8, 250000.0, "2018-04-02", "Maths Research" ),
+( 9, 6250000.0, "2018-04-02", "Maths Research" ),
+( 10, 450000.0, "2018-04-02", "Maths Research" );
 
 INSERT INTO Supervisor VALUES
 -- supervisorID, firstName, lastName, fundingAvailable
