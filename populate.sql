@@ -283,14 +283,28 @@ INSERT INTO StudentAdvisor VALUES
 INSERT INTO TeachingAssistant VALUES
 -- teachingAssistantID, studentID, firstName, lastName, dateOfBirth, gpa
 ( 1, 5, "Salomon", "Kane", '1979-09-09', 3.76 ),
-( 2, 6, "Stephan", "Stephanson", '1980-01-01', 3.25 );
+( 2, 6, "Stephan", "Stephanson", '1980-01-01', 3.25 ),
+( 3, 7, "Marcus", "Aurelius", '1956-12-27', 3.59 ),
+( 4, 8, "Ada", "Lovelace", '1815-12-10', 2.70 ),
+( 5, 9, "Charles", "Babage", '1791-12-26', 3.23 ),
+( 6, 10, "Alonzo", "Church", '1903-06-14', 3.40 ),
+( 7, 11, "Marcus", "Aurelius", '1956-12-27', 3.89  ),
+( 8, 12, "Ada", "Lovelace", '1815-12-10', 4.30 ),
+( 9, 13, "Charles", "Babage", '1791-12-26', 4.23 ),
+( 10, 20, "Ada", "Lovelace", '1815-12-10', 4.30 ),;
 
 INSERT INTO TeachingAssistantRoles VALUES
 -- courseID, sectionID, termID, teachingAssistantID, room, typeofrole, hours
 ( "COMP352", "WA", 1, 1, 435, "tutorial", 100),
 ( "MATH203", "HC", 1, 2, 405, "tutorial", 100 ),
 ( "MATH205", "CR", 1, 2, 407, "tutorial", 100 ),
-( "COMP353", "BR", 6, 1, 907, "lab", 100 );
+( "COMP353", "BR", 6, 1, 907, "lab", 100 ),
+( "COMP352", "WA", 2, 3, 435, "tutorial", 100 ),
+( "COMP352", "WA", 2, 4  435, "lab", 100 ),
+( "COMP248", "AA", 6, 8, 405, "tutorial", 100 ),
+( "COMP248", "AA", 6, 9, 405, "lab", 100 ),
+( "COMP232", "CA", 7, 10, 1120, "tutorial", 100 ),
+( "COMP232", "CA", 7, 6, 1120, "lab", 100 );
 
 INSERT INTO ResearchFunding VALUES
 -- researchFundingID, amount, researchDate, researchName
@@ -308,7 +322,15 @@ INSERT INTO ResearchFunding VALUES
 INSERT INTO Supervisor VALUES
 -- supervisorID, firstName, lastName, fundingAvailable
 ( 1, "Tony", "Stark", true ),
-( 2, "Harald", "Hardrada", true);
+( 2, "Harald", "Hardrada", true ),
+( 3, "Jim", "Raynor", false ),
+( 4, "Tony", "Stark", true ),
+( 5, "Harald", "Hardrada", true ),
+( 6, "Jim", "Raynor", false ),
+( 7, "Tony", "Stark", true ),
+( 8, "Harald", "Hardrada", true ),
+( 9, "Jim", "Raynor", false ),
+( 10, "QA", "Tester", true );
 
 INSERT INTO StudentSupervisor VALUES
 -- studentID, supervisorID, programID

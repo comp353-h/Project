@@ -185,8 +185,6 @@ SELECT
    s.building,
    startat,
    endat,
-   firstName,
-   lastName,
    capacity
 FROM
    Course c
