@@ -89,7 +89,7 @@ INSERT INTO Term VALUES
 ( 10, "FALL", 2020 );
 
 INSERT INTO Section VALUES
--- sectionID, courseID, termID, room, startat, endat.
+-- courseID, sectionID, termID, room, startat, endat.
 ( "MATH202", "MT", 1, 907, "H", "08:45:00", "10:00:00" ),
 ( "MATH203", "HC", 1, 405, "H", "08:45:00", "10:00:00" ),
 ( "CIVI212", "GD", 1, 1120, "JM", "15:30:00", "16:45:00" ),
@@ -101,11 +101,11 @@ INSERT INTO Section VALUES
 ( "COMP248", "CC", 2, 1123, "JM", "14:45:00", "17:30:00" ),
 ( "COMP352", "WA", 2, 435, "H", "14:30:00", "15:45:00" ),
 ( "COMP249", "WA", 3, 407, "H", "12:30:00", "15:00:00" ),
+( "COMP352", "AA", 3, 907, "H", "14:30:00", "15:45:00" ),
 ( "COMP353", "CM", 3, 535, "H", "17:45:00", "20:15:00" ),
 ( "COMP352", "BA", 4, 1120, "JM", "09:00:00", "10:15:00" ),
 ( "COMP352", "DC", 4, 411, "H", "12:45:00", "14:00:00" ),
 ( "COMP352", "RA", 4, 409, "H", "17:45:00", "20:15:00" ),
-( "COMP352", "AA", 3, 907, "H", "14:30:00", "15:45:00" ),
 ( "COMP248", "AA", 6, 405, "H", "14:00:00", "15:15:00" ),
 ( "COMP233", "CA", 6, 409, "H", "09:00:00", "10:15:00" ),
 ( "COMP232", "RR", 6, 407, "H", "14:45:00", "17:30:00" ),
@@ -113,9 +113,24 @@ INSERT INTO Section VALUES
 ( "COMP248", "BB", 7, 407, "H", "14:00:00", "15:15:00" ),
 ( "COMP352", "TA", 5, 405, "H", "14:00:00", "15:15:00" );
 
--- INSERT INTO InstructorHistory VALUES
--- instructorID, termID, courseID, sectionID.
-
+INSERT INTO InstructorHistory VALUES
+-- instructorID, courseID, sectionID, termID.
+( 6, "MATH202", "MT", 1 ),
+( 6, "MATH203", "HC", 1 ),
+( 10, "CIVI212", "GD", 1 ),
+( 4, "BCEE231", "RC", 1 ),
+( 3,  "SOEN228", "BB", 1 ),
+( 6, "MATH204", "BB", 2 ),
+( 6, "MATH205", "CR", 2 ),
+( 5, "COMP232", "CM", 2),
+( 2, "COMP248", "CC", 2 ),
+( 8, "COMP352", "WA", 2 ),
+( 2, "COMP249", "WA", 3 ),
+( 7, "COMP352", "AA", 3 ),
+( 1, "COMP353", "CM", 3 ),
+( 7, "COMP352", "BA", 4 ),
+( 1, "COMP352", "DC", 4 ),
+( 8, "COMP352", "RA", 4 );
 
 INSERT INTO Student VALUES
 -- studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa.
@@ -126,10 +141,10 @@ INSERT INTO Student VALUES
 ( 5, "Salomon", "Kane", NULL, "salomon.kane@gmail.com", '1979-09-09', "Graduate", 3.76 ),
 ( 6, "Stephan", "Stephanson", NULL, "stephan.stephanson@gmail.com", '1980-01-01', "Graduate", 3.25 ),
 ( 7, "Marcus", "Aurelius", NULL, "marcus.aurelius@gmail.com", '1956-12-27', "Graduate", 3.59 ),
-( 8, "Ada", "Lovelace", NULL, "ada.lovelace@gmail.com", '1815-12-10', "Graduate", 4.30 ),
-( 9, "Charles", "Babage", NULL, "charles.babage@gmail.com", '1791-12-26', "Graduate", 4.23 ),
-( 10, "Alonzo", "Church", NULL, "alonzo.church@gmail.com", '1903-06-14', "Graduate", 3.90 ),
-( 11, "Marcus", "Aurelius", NULL, "marcus.aurelius@gmail.com", '1956-12-27', "Graduate", 3.59 ),
+( 8, "Ada", "Lovelace", NULL, "ada.lovelace@gmail.com", '1815-12-10', "Graduate", 2.70 ),
+( 9, "Charles", "Babage", NULL, "charles.babage@gmail.com", '1791-12-26', "Graduate", 3.23 ),
+( 10, "Alonzo", "Church", NULL, "alonzo.church@gmail.com", '1903-06-14', "Graduate", 3.40 ),
+( 11, "Marcus", "Aurelius", NULL, "marcus.aurelius@gmail.com", '1956-12-27', "Graduate", 3.89  ),
 ( 12, "Ada", "Lovelace", NULL, "ada.lovelace@gmail.com", '1815-12-10', "Graduate", 4.30 ),
 ( 13, "Charles", "Babage", NULL, "charles.babage@gmail.com", '1791-12-26', "Graduate", 4.23 ),
 ( 14, "Alonzo", "Church", NULL, "alonzo.church@gmail.com", '1903-06-14', "Graduate", 3.90 ),
@@ -197,7 +212,9 @@ INSERT INTO Advisor VALUES
 ( 5, "Bilbo", "Baggins" ),
 ( 6, "Spongebob", "Squarepants" ),
 ( 7, "Patrick", "Stars" ),
-( 8, "Gandalf", "The Grey" );
+( 8, "Gandalf", "The Grey" ),
+( 9, "Tyrion", "Lanister" ),
+( 10, "John", "Snow" );
 
 INSERT INTO StudentAdvisor VALUES
 -- studentID, advisorID, programID

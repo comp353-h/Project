@@ -85,9 +85,9 @@ CREATE TABLE Section (
 
 CREATE TABLE InstructorHistory (
     instructorID INT NOT NULL,
-    termID INT NOT NULL,
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(4) NOT NULL,
+    termID INT NOT NULL,
     FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
 	FOREIGN KEY (termID) REFERENCES Term (termID),
 	FOREIGN KEY (courseID, sectionID) REFERENCES Section (courseID, sectionID)
