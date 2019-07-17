@@ -112,7 +112,7 @@ INSERT INTO Section VALUES
 ( "BB", "COMP248", 7, 407, "H", "14:00:00", "15:15:00" ),
 ( "TA", "COMP352", 5, 405, "H", "14:00:00", "15:15:00" );
 
-INSERT INTO InstructorHistory VALUES
+-- INSERT INTO InstructorHistory VALUES
 -- instructorID, termID, courseID, sectionID.
 
 
