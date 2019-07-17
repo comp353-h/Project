@@ -180,7 +180,7 @@ INSERT INTO StudentCourses VALUES
 ( 1, "MATH202", "MT", 1, "A" ),
 ( 1, "MATH203", "HC", 1, "B+" ) ,
 ( 1, "MATH204", "BB", 2, "A-" ),
-( 1, "MATH205", "CC", 2, "B" ),
+( 1, "MATH205", "CR", 2, "B" ),
 ( 1, "COMP232", "CM", 2, "A-" ),
 ( 1, "COMP248", "CC", 2, "A" ),
 ( 1, "COMP353", "CM", 3, "A+" );
