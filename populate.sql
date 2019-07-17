@@ -192,10 +192,10 @@ INSERT INTO TeachingAssistant VALUES
 
 INSERT INTO TeachingAssistantRoles VALUES
 -- courseID, sectionID, termID, teachingAssistantID, room, typeofrole, hours
-( "COMP352", "WA", 1, 1, 435, "tutorial", '100:00:00'),
-( "MATH203", "HC", 1, 2, 405, "tutorial", '100:00:00' ),
-( "MATH205", "CR", 1, 2, 407, "tutorial", '100:00:00' ),
-( "COMP353", "BR", 6, 1, 907, "lab", '100:00:00' );
+( "COMP352", "WA", 1, 1, 435, "tutorial", 100),
+( "MATH203", "HC", 1, 2, 405, "tutorial", 100 ),
+( "MATH205", "CR", 1, 2, 407, "tutorial", 100 ),
+( "COMP353", "BR", 6, 1, 907, "lab", 100 );
 
 INSERT INTO ResearchFunding VALUES
 -- researchFundingID, amount, researchDate, researchName
