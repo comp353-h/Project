@@ -179,7 +179,8 @@ department for the summer term of 2019. Details include Course name,
 section, room location, start and end time, professor teaching the course,
 max class capacity and number of enrolled students.*/
 SELECT 
-*
+   courseName,
+   sectionID
 FROM
    Course c
 	   JOIN
