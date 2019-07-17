@@ -181,6 +181,10 @@ max class capacity and number of enrolled students.*/
 SELECT 
    courseName,
    sectionID
+   room,
+   building,
+   startat,
+   endat
 FROM
    Course c
 	   JOIN
