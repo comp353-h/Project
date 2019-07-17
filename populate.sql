@@ -227,7 +227,14 @@ INSERT INTO StudentCourses VALUES
 ( 2, "COMP232", "CM", 2, "B-" ),
 ( 2, "COMP248", "CC", 2, "B" ),
 ( 2, "COMP249", "WA", 3, "B" ),
-( 2, "COMP353", "CM", 3, "B+" );
+( 2, "COMP353", "CM", 3, "B+" ),
+( 3, "MATH202", "MT", 1, "A" ),
+( 3, "MATH203", "HC", 1, "B+" ),
+( 3, "MATH204", "BB", 2, "A-" ),
+( 3, "MATH205", "CR", 2, "B" ),
+( 3, "COMP248", "AA", 6, "B" ),
+( 3, "COMP233", "CA", 6, "B" ),
+( 3, "COMP232", "RR", 6, "B" );
 
 INSERT INTO Advisor VALUES
 -- advisorID, firstName, lastName
