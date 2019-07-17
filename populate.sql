@@ -124,7 +124,7 @@ INSERT INTO InstructorHistory VALUES
 ( 2, 6, "COMP233", "CA" ),
 ( 2, 7, "COMP248", "BB" );
 
-insert into InstructorSection VALUES
+-- insert into InstructorSection VALUES
 -- instructorID, termID, courseID, sectionID
 
 INSERT INTO Student VALUES
