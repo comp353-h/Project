@@ -291,7 +291,7 @@ INSERT INTO TeachingAssistant VALUES
 ( 7, 11, "Marcus", "Aurelius", '1956-12-27', 3.89  ),
 ( 8, 12, "Ada", "Lovelace", '1815-12-10', 4.30 ),
 ( 9, 13, "Charles", "Babage", '1791-12-26', 4.23 ),
-( 10, 20, "Ada", "Lovelace", '1815-12-10', 4.30 ),;
+( 10, 20, "Ada", "Lovelace", '1815-12-10', 4.30 );
 
 INSERT INTO TeachingAssistantRoles VALUES
 -- courseID, sectionID, termID, teachingAssistantID, room, typeofrole, hours
@@ -300,7 +300,7 @@ INSERT INTO TeachingAssistantRoles VALUES
 ( "MATH205", "CR", 1, 2, 407, "tutorial", 100 ),
 ( "COMP353", "BR", 6, 1, 907, "lab", 100 ),
 ( "COMP352", "WA", 2, 3, 435, "tutorial", 100 ),
-( "COMP352", "WA", 2, 4,  435, "lab", 100 ),
+( "COMP352", "WA", 2, 4, 435, "lab", 100 ),
 ( "COMP248", "AA", 6, 8, 405, "tutorial", 100 ),
 ( "COMP248", "AA", 6, 9, 405, "lab", 100 ),
 ( "COMP232", "CA", 7, 10, 1120, "tutorial", 100 ),
