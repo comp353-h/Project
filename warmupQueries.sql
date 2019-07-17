@@ -180,17 +180,20 @@ section, room location, start and end time, professor teaching the course,
 max class capacity and number of enrolled students.*/
 SELECT 
    courseName,
-   sectionID
+   sectionID,
    room,
    building,
    startat,
-   endat
+   endat,
+   capacity
 FROM
    Course c
 	   JOIN
    Section s ON (s.courseID = c.courseID)
       JOIN
    Department d ON (d.departmentID = c.departmentID)
+      JOIN
+   Class ON ( class.room = s.room AND class.building = s.building )
 WHERE
    ( d.departmentID = 1 ) AND ( s.termID = 6 )
 GROUP BY
