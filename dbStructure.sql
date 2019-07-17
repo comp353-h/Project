@@ -89,8 +89,8 @@ CREATE TABLE InstructorHistory (
     sectionID VARCHAR(4) NOT NULL,
     termID INT NOT NULL,
     FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
-	FOREIGN KEY (termID) REFERENCES Term (termID),
-	FOREIGN KEY (courseID, sectionID) REFERENCES Section (courseID, sectionID)
+	FOREIGN KEY (courseID, sectionID) REFERENCES Section (courseID, sectionID),
+    FOREIGN KEY (termID) REFERENCES Term (termID)
 -- 	FOREIGN KEY (courseID) REFERENCES Course (courseID)
 )  ENGINE=INNODB;
 
@@ -98,11 +98,13 @@ CREATE TABLE InstructorSection (
     instructorID INT NOT NULL,
     courseID VARCHAR(8) NOT NULL,
     sectionID VARCHAR(4) NOT NULL,
+    termID INT NOT NULL,
     departmentID INT NOT NULL,
 	startat TIME NOT NULL,
     endat TIME NOT NULL,
     FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
     FOREIGN KEY (courseID, sectionID) REFERENCES Section (courseID, sectionID),
+    FOREIGN KEY (termID) REFERENCES Term( termID ),
     FOREIGN KEY (departmentID) REFERENCES Department (departmentID),
     UNIQUE KEY (instructorID , sectionID , departmentID)
 
