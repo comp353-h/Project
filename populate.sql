@@ -233,7 +233,7 @@ INSERT INTO StudentCourses VALUES
 ( 3, "MATH204", "BB", 2, "A-" ),
 ( 3, "MATH205", "CR", 2, "B" ),
 ( 3, "COMP248", "AA", 6, "B" ),
-( 3, "COMP233", "CA", 6, "B" ),
+( 3, "COMP233", "CA", 6, "B" ), 
 ( 3, "COMP232", "RR", 6, "B" );
 
 INSERT INTO Advisor VALUES

@@ -181,17 +181,13 @@ max class capacity and number of enrolled students.*/
 SELECT 
 *
 FROM
-    Course c
-		JOIN
-    Section s ON (s.courseID = c.courseID)
-        JOIN
-    Department d ON (d.departmentID = c.departmentID)
+   Course c
+	   JOIN
+   Section s ON (s.courseID = c.courseID)
+      JOIN
+   Department d ON (d.departmentID = c.departmentID)
 WHERE
-    d.departmentID = 1 
-       AND 
-   (
-      s.termID = 6
-   )
+   ( d.departmentID = 1 ) AND ( s.termID = 6 )
 GROUP BY
    c.coursename;
    
