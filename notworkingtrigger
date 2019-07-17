@@ -1,0 +1,31 @@
+DELIMITER $$
+CREATE TRIGGER UPDATE_check_prereq BEFORE UPDATE ON StudentCourses
+FOR EACH ROW
+BEGIN
+DECLARE abc varchar(8);
+SET abc = (
+			SELECT sc2.grade
+			FROM
+			(
+					SELECT c.prerequisite
+					FROM
+						hrc353_1.StudentCourses sc
+					JOIN Course c ON (sc.courseID = c.courseID)
+					WHERE
+						c.courseID = NEW.courseID
+							AND sc.studentID = NEW.studentID)tabc
+        JOIN
+		StudentCourses sc2 ON (sc2.courseID = tabc.prerequisite));
+
+  IF abc = NULL 
+THEN
+	SIGNAL SQLSTATE '45000'
+           SET MESSAGE_TEXT = 'You a hoe';
+                   END IF;
+
+  IF abc = 'F'
+THEN
+	SIGNAL SQLSTATE '45000'
+           SET MESSAGE_TEXT = 'You a hoe';           
+    END IF;
+END;$$
