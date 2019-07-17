@@ -152,7 +152,7 @@ INSERT INTO Student VALUES
 ( 24, "Ada", "Lovelace", NULL, "ada.lovelace@gmail.com", '1815-12-10', "Graduate", 4.30 ),
 ( 25, "Charles", "Babage", NULL, "charles.babage@gmail.com", '1791-12-26', "Graduate", 4.23 ),
 ( 26, "Alonzo", "Church", NULL, "alonzo.church@gmail.com", '1903-06-14', "Graduate", 3.90 );
-
+1
 INSERT INTO StudentProgram VALUES
 -- studentID, programID.
 ( 1, 2 ),
