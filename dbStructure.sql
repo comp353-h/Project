@@ -69,9 +69,9 @@ CREATE TABLE Term (
 )  ENGINE=INNODB;
 
 CREATE TABLE Section (
-    sectionID VARCHAR(4),
     courseID VARCHAR(8) NOT NULL,
     termID INT NOT NULL,
+    sectionID VARCHAR(4),
     room INT NOT NULL,
     building VARCHAR(2),
     startat TIME NOT NULL ,
