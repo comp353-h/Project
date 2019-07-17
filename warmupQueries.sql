@@ -178,46 +178,23 @@ HAVING
 department for the summer term of 2019. Details include Course name,
 section, room location, start and end time, professor teaching the course,
 max class capacity and number of enrolled students.*/
-SELECT
-   c.coursename,
-   i.lastname AS 'instructorLastName',
-   i.firstname AS 'instructorFirstName',
-   s.startat,
-   s.endat,
-   cl.building,
-   cl.room,
-   COUNT(DISTINCT sc.studentID) AS 'studentsEnrolled' 
+SELECT 
+*
 FROM
-   Department d 
-   JOIN
-      Course c 
-      ON (d.departmentID = c.departmentID) 
-   JOIN
-      Section s 
-      ON (s.courseID = c.courseID) 
-   JOIN
-      StudentCourses sc 
-      ON (sc.sectionID = s.sectionID) 
-   JOIN
-      Class cl 
-      ON (cl.room = s.room) 
-   JOIN
-      Term t 
-      ON (s.termID = t.termID) 
-   JOIN
-      InstructorHistory inh 
-      ON (inh.termID = t.termID) 
-   JOIN
-      Instructor i 
-      ON (inh.instructorID = i.instructorID) 
+    Course c
+		JOIN
+    Section s ON (s.courseID = c.courseID)
+        JOIN
+    Department d ON (d.departmentID = c.departmentID)
 WHERE
-   d.name = 'Computer Science' 
-   AND 
+    d.departmentID = 1 
+       AND 
    (
-      t.termID = 6
+      s.termID = 6
    )
 GROUP BY
    c.coursename;
+   
 -- Q9
 /*For each department, find the total number of courses offered by the
 department.*/
