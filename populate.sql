@@ -130,7 +130,7 @@ INSERT INTO InstructorHistory VALUES
 ( 1, "COMP353", "CM", 3 ),
 ( 7, "COMP352", "BA", 4 ),
 ( 1, "COMP352", "DC", 4 ),
-( 8, "COMP352", "RA", 4 );
+( 9, "COMP352", "RA", 4 );
 
 INSERT INTO Student VALUES
 -- studentID, firstName, lastName, phone, email, dateOfBirth, studentType, gpa.
