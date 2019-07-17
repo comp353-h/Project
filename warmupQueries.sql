@@ -193,7 +193,7 @@ FROM
       JOIN
    Department d ON (d.departmentID = c.departmentID)
       JOIN
-   Class ON ( class.room = s.room AND class.building = s.building )
+   Class ON ( Class.room = s.room AND Class.building = s.building )
 WHERE
    ( d.departmentID = 1 ) AND ( s.termID = 6 )
 GROUP BY
