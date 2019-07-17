@@ -180,7 +180,7 @@ section, room location, start and end time, professor teaching the course,
 max class capacity and number of enrolled students.*/
 SELECT 
    courseName,
-   sectionID,
+   s.sectionID,
    s.room,
    s.building,
    startat,
