@@ -22,6 +22,7 @@ WHERE
       OR sc.grade = 'A'
    )
 ;
+
 -- Q2
 /*Find ID, first name, last name and number of programs of students who
 are enrolled in at least two different programs in the Computer Science
@@ -57,6 +58,7 @@ FROM
    AS T 
 WHERE
    NumberOfPrograms > 1;
+   
 -- Q3
 /*Find the name of all the instructors who taught Comp 352 in the fall term
 of 2018 but have never taught the same course before.*/
@@ -87,21 +89,9 @@ WHERE
          )
       GROUP BY
          instructorID
-   )
-;
-/*SELECT * FROM
-    InstructorHistory ih
-        JOIN
-    Instructor i ON (ih.instructorID = i.instructorID)
-        JOIN
-    Term t ON (t.termID = ih.termID)
-        JOIN
-    Section s ON (s.sectionID = ih.sectionID)
-        JOIN
-    Course c ON (c.courseID =  s.courseID)
-   WHERE i.firstName = (SELECT * FROM table1 WHERE ...)
-    -- c.courseID = 'COMP352' AND  
-; */
+   );
+   
+-- Q4 
 SELECT
    p.name,
    p.credits 
@@ -109,6 +99,8 @@ FROM
    Program p 
 WHERE
    departmentID = 1;
+   
+   
 -- Q5 
 /*Find the name and IDs of all the undergraduate students who do not have
 an advisor.*/
@@ -130,6 +122,7 @@ WHERE
          StudentAdvisor
    )
 ;
+
 -- Q6 			     
 /*Find the ID, name and assignment mandate of all the graduate students
 who are assigned as teaching assistants to Comp 353 for the summer term
@@ -156,6 +149,8 @@ WHERE
    AND t.termName = 'SUMMER' 
    AND t.termYear = 2019 
    AND ta.teachingAssistantID = tar.teachingAssistantID ;
+   
+   
 -- Q7			     
 /*Find the name of all the supervisors in the Computer Science department
 who have supervised at least 20 students.*/
@@ -173,31 +168,39 @@ GROUP BY
    s.supervisorID 
 HAVING
    COUNT(s.supervisorID > 19) ;
+   
 -- Q8
 /*Find the details of all the courses offered by the Computer Science
 department for the summer term of 2019. Details include Course name,
 section, room location, start and end time, professor teaching the course,
 max class capacity and number of enrolled students.*/
 SELECT 
-   courseName,
-   s.sectionID,
-   s.room,
-   s.building,
-   startat,
-   endat,
-   capacity
+    courseName,
+    s.sectionID,
+    s.room,
+    s.building,
+    s.startat,
+    s.endat,
+    capacity,
+    i.firstName,
+    i.lastName
 FROM
-   Course c
-	   JOIN
-   Section s ON (s.courseID = c.courseID)
-      JOIN
-   Department d ON (d.departmentID = c.departmentID)
-      JOIN
-   Class ON ( Class.room = s.room AND Class.building = s.building )
+    Course c
+        JOIN
+    Section s ON (s.courseID = c.courseID)
+        JOIN
+    InstructorSection ins ON (s.courseID = ins.courseID)
+        JOIN
+    Instructor i ON (i.instructorID = ins.instructorID)
+        JOIN
+    Department d ON (d.departmentID = c.departmentID)
+        JOIN
+    Class cl ON (cl.room = s.room
+        AND cl.building = s.building)
 WHERE
-   ( d.departmentID = 1 ) AND ( s.termID = 6 )
-GROUP BY
-   c.coursename;
+    (d.departmentID = 1) AND (s.termID = 6)
+GROUP BY c.coursename;
+   
    
 -- Q9
 /*For each department, find the total number of courses offered by the
@@ -212,6 +215,8 @@ FROM
       ON (d.departmentID = c.departmentID) 
 GROUP BY
    d.departmentID;
+   
+   
 -- Q10
 /*For each program, find the total number of students enrolled into the
 program.*/
