@@ -196,10 +196,6 @@ FROM
    Department d ON (d.departmentID = c.departmentID)
       JOIN
    Class ON ( Class.room = s.room AND Class.building = s.building )
-      JOIN
-   InstructorHistory i_h ON ( s.courseID = i_h.courseID AND s.sectionID AND i_h.sectionID )
-      JOIN
-   Instructor i ON ( i.instructorID = i_h.instructorID )
 WHERE
    ( d.departmentID = 1 ) AND ( s.termID = 6 )
 GROUP BY
