@@ -103,10 +103,9 @@ CREATE TABLE InstructorSection (
     endat TIME NOT NULL,
     FOREIGN KEY (instructorID) REFERENCES Instructor (instructorID),
     FOREIGN KEY (courseID, sectionID) REFERENCES Section (courseID, sectionID),
-    FOREIGN KEY (departmentID) REFERENCES Department (departmentID)
---  UNIQUE KEY (instructorID , sectionID , departmentID),
--- 	UNIQUE KEY (instructorID , startat , endat)
--- 	CONSTRAINT CHK_EndTime_After_StartTime CHECK (endat > startat)
+    FOREIGN KEY (departmentID) REFERENCES Department (departmentID),
+    UNIQUE KEY (instructorID , sectionID , departmentID)
+
 )  ENGINE=INNODB;
 
 CREATE TABLE Student (
@@ -176,7 +175,7 @@ CREATE TABLE TeachingAssistantRoles (
     teachingAssistantID INT NOT NULL,
 	room INT NOT NULL,
 	typeofrole ENUM ('tutorial','lab','marker'),
-    hours TIME NOT NULL,
+    hours INT NOT NULL,
 	FOREIGN KEY (teachingAssistantID) REFERENCES TeachingAssistant (teachingAssistantID),
 	FOREIGN KEY (courseID,sectionID) REFERENCES Section (courseID,sectionID),
     FOREIGN KEY (termID) REFERENCES Term (termID)
