@@ -169,6 +169,7 @@ GROUP BY
 HAVING
    COUNT(s.supervisorID > 19) ;
    
+   
 -- Q8
 /*Find the details of all the courses offered by the Computer Science
 department for the summer term of 2019. Details include Course name,
@@ -176,14 +177,21 @@ section, room location, start and end time, professor teaching the course,
 max class capacity and number of enrolled students.*/
 SELECT 
     courseName,
+    c.courseID,
+    CONCAT(i.firstName, ' ', i.lastName) AS name,
     s.sectionID,
     s.room,
     s.building,
     s.startat,
     s.endat,
     capacity,
-    i.firstName,
-    i.lastName
+    (SELECT 
+            COUNT(courseID)
+        FROM
+            StudentCourses scs
+        WHERE
+            scs.termID = 6
+                AND scs.courseID = c.courseID) AS enrolled
 FROM
     Course c
         JOIN
@@ -201,7 +209,7 @@ WHERE
     (d.departmentID = 1) AND (s.termID = 6)
 GROUP BY c.coursename;
    
-   
+
 -- Q9
 /*For each department, find the total number of courses offered by the
 department.*/
